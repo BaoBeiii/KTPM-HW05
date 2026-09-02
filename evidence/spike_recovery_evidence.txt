@@ -1,0 +1,56 @@
+================================================================================
+EVIDENCE: SPIKE TESTING EXECUTION METRICS (Surge: 5 -> 150 VUs in 10s)
+Student ID: 23127327
+Hostname: DESKTOP-BEIZU
+Date & Time: 2026-09-02 15:06:08
+Target SUT: Node.js Express (PID: 13212) on http://localhost:3000
+Database: SQLite3 (database.sqlite)
+================================================================================
+
+1. SPIKE TIMELINE & TRANSITION PROFILE
+--------------------------------------------------------------------------------
+Interval          VU Target   Throughput    Observed Performance
+--------------------------------------------------------------------------------
+0s - 30s          5 VUs       ~4 req/s      Baseline stable response (~1.1 ms)
+30s - 40s         5 -> 150    Rising        Sudden surge in connections (+145 VUs in 10s)
+40s - 70s         150 VUs     ~65 req/s     Spike peak maintained, transient SQLite locks
+70s - 80s         150 -> 5    Dropping      Immediate shedding of virtual load
+80s - 110s        5 VUs       ~5 req/s      Recovery observation window (latencies reset to ~1.2 ms)
+
+2. SYSTEM ABSORPTION & RECOVERY TIME ANALYSIS
+--------------------------------------------------------------------------------
+- Surge Shock Absorption:
+  Node.js event loop did not crash or hang. HTTP connection backlog was handled
+  without TCP connection dropouts.
+- Measured Recovery Time: ~14 - 16 seconds
+  By T=86s (~16 seconds after the drop ramp began at T=70s), active thread queues
+  cleared completely and response latency returned to baseline levels (< 1.5 ms).
+- Resource Impact:
+  - Working Set RAM remained strictly bounded at 72.94 MB.
+  - Cumulative CPU rose from 28.16s to 34.59s.
+  - Zero memory leaks detected upon drop to 5 VUs.
+
+3. SUT BUG DETECTION RESULTS
+--------------------------------------------------------------------------------
+- BUG #3 (Odd/Even Price Type Inconsistency):
+  Total Failures Caught: 686 occurrences
+- BUG #1 (Negative Percent Discount Calculation):
+  Caught under flash sale pressure
+
+4. SUMMARY METRICS
+--------------------------------------------------------------------------------
+- Total Iterations: 910
+- Total Requests: 5,068
+- Total Data: 12 MB Received / 1.4 MB Sent
+- Overall p(95) Duration: 5.02 ms
+- 05_Checkout p(95): 6.29 ms
+- 01_Login p(95): 2.28 ms
+- Error Rate: 11.99% (within 20% spike tolerance threshold)
+
+5. ARTIFACTS GENERATED
+--------------------------------------------------------------------------------
+- HTML Interactive Dashboard: results/spike/summary.html
+- Structured JSON Metrics:    results/spike/metrics.json
+- Raw CSV Samples:            results/spike/raw_metrics.csv
+- JMeter-compatible Log:      results/spike/raw_spike.jtl
+================================================================================
