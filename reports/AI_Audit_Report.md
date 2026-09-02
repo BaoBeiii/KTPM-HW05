@@ -133,4 +133,31 @@
   >    - `evidence/endurance_hardware_threshold.txt`
   >    - `evidence/resource_monitor_log.csv`
 
+---
+
+## 4. Nhật ký Tương tác Giai đoạn 4: Phân Tích Kết Quả, Phản Biện Lỗi AI & Đề Xuất Cải Tiến (Task 2)
+
+### Phiên làm việc 4.1: Phân Tích Báo Cáo Hiệu Năng & Bắt Các Lỗi Suy Diễn Ngụy Tạo Của AI
+* **Thời gian (Timestamp):** `2026-09-02T15:25:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Đưa dữ liệu đo tải thực tế cho AI phân tích, sau đó sinh viên thực hiện phản biện sắc bén các lỗi ngộ nhận, ảo giác số liệu và đề xuất 4 giải pháp tối ưu kiến trúc.
+* **Prompt của Người dùng:**
+  ```text
+  Dưới đây là dữ liệu log thực tế thu thập được từ 4 bài kiểm thử hiệu năng trên hệ thống EShop SUT 
+  (Load 50 VUs, Stress 200 VUs, Spike 150 VUs, Endurance 30 VUs trong 15 phút) cùng file giám sát 
+  tài nguyên evidence/resource_monitor_log.csv: [Dữ liệu trích xuất từ 4 bài test].
+  Hãy phân tích hiệu năng của hệ thống, chỉ ra điểm nghẽn và đưa ra các đề xuất cải tiến.
+  ```
+* **Phản hồi Thô Của AI (AI Raw Response):**
+  > AI ca ngợi Average Latency (~1.16ms) là siêu tốc; khẳng định tỷ lệ lỗi 42.8% và mã 403/500 là do "server quá tải bị sập kết nối"; kết luận RAM tăng từ 59MB lên 96MB là "dấu hiệu rò rỉ bộ nhớ nghiêm trọng"; đề xuất nâng cấp Kubernetes hoặc viết lại backend bằng Golang/Rust.
+* **Đóng Góp Phản Biện Của Sinh Viên (Human Critique & Fix):**
+  > Sinh viên đã vạch trần 5 lỗi suy diễn mang tính hệ thống của AI:
+  > 1. *Ngụy biện giá trị trung bình (The Mean Fallacy)*: Bỏ qua phân vị đuôi $p95$ ở bước ghi Checkout.
+  > 2. *Ngộ nhận tỷ lệ lỗi*: 42.8% là kết quả của các negative test case coupon có chủ đích, không phải server sập.
+  > 3. *Hiểu sai mã 403 & bỏ sót 7 bug SUT*: Mã 403 là tính năng lockout bảo mật FR-02; AI hoàn toàn bỏ sót hơn 3.400 lỗi sai kiểu dữ liệu BUG-03 và lỗi giảm giá âm BUG-01.
+  > 4. *Chẩn đoán sai rò rỉ bộ nhớ*: V8 Garbage Collection đã thu hồi RAM về 70MB sau tải, drift chỉ +10.7MB.
+  > 5. *Đề xuất 4 giải pháp kiến trúc thực tế*: SQLite WAL mode, Indexing khóa ngoại, Atomic transactions cho coupon, và In-memory caching cho danh mục sản phẩm.
+  > Tài liệu bàn giao độc lập: `reports/Task2_AI_Analysis_Critique.md`.
+
+
 
