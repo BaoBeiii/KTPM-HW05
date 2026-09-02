@@ -105,3 +105,32 @@
   >    - `reports/bug_reports.md`: Mô tả chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issue.
   >    - `reports/test_cases.md`: Tổng hợp ma trận kiểm thử và toàn bộ ca kiểm thử chi tiết.
 
+---
+
+## 3. Nhật ký Tương tác Giai đoạn 3: Thực Thi Đo Tải & Thu Thập Bằng Chứng Thực Nghiệm
+
+### Phiên làm việc 3.1: Thực Thi 4 Bài Kiểm Thử Đo Tải & Thu Thập Dữ Liệu Tài Nguyên Hệ Thống
+* **Thời gian (Timestamp):** `2026-09-02T15:20:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Khởi động backend daemon, tự động hóa chạy 4 kịch bản k6 (Load 50 VUs, Stress 200 VUs, Spike 150 VUs, Endurance 30 VUs trong 15 phút), giám sát tài nguyên CPU/RAM tiến trình `node.exe` (PID: 13212), và trích xuất bằng chứng định lượng.
+* **Prompt của Người dùng:**
+  ```text
+  Duyệt qua giai đoạn 3. Tiến hành khởi chạy server eshop, thực thi đo tải thực tế cho cả 4 bài test 
+  (Load, Stress, Spike, Endurance 15 phút), thu thập dữ liệu tiêu thụ tài nguyên máy và trích xuất 
+  các file báo cáo html dashboard, metrics.json và log jtl.
+  ```
+* **Phản hồi của AI & Kết Quả Thực Thi Đo Đạc Thực Tế:**
+  > AI điều khiển thực thi toàn diện chuỗi đo tải:
+  > 1. **Load Test (Peak 50 VUs - 8 phút)**: 1.420 iterations, 5.235 requests, trễ $p95 = 1.74\text{ms}$, bắt 1.084 lỗi BUG-03 và 6 lỗi BUG-01. Sinh `results/load/summary.html`, `metrics.json`, `raw_metrics.csv`, `raw_load.jtl`.
+  > 2. **Stress Test (Bậc thang 10..200 VUs - ~4 phút)**: 3.058 iterations, 17.279 requests, thông lượng $66.59\text{ req/s}$, dữ liệu 24 MB. Xác định Điểm gãy (Breaking Point) tại **120 - 150 VUs** do nghẽn hàng đợi ghi SQLite (`SQLITE_BUSY`). Bắt 2.329 lỗi BUG-03 và 53 lỗi BUG-01. Sinh `results/stress/summary.html`, `metrics.json`, `raw_metrics.csv`, `raw_stress.jtl`.
+  > 3. **Spike Test (Đột biến 150 VUs trong 10s - ~2 phút)**: 910 iterations, 5.068 requests, dữ liệu 12 MB. Xác định Thời gian hồi phục (Recovery Time) là **~14 - 16 giây** sau khi tải hạ về 5 VUs. Sinh `results/spike/summary.html`, `metrics.json`, `raw_metrics.csv`, `raw_spike.jtl`.
+  > 4. **Endurance Test (30 VUs duy trì 15 phút)**: 2.814 iterations, 15.736 requests, dữ liệu 66 MB. Trễ $p95 = 5.73\text{ms}$ phẳng và ổn định tuyệt đối. Sinh `results/endurance/summary.html`, `metrics.json`, `raw_metrics.csv`, `raw_endurance.jtl`.
+  > 5. **Giám sát Tài nguyên (PID 13212)**: Thu thập 576 mẫu dữ liệu liên tục trong 32 phút ghi vào `evidence/resource_monitor_log.csv`. Working Set RAM ban đầu 59.73 MB, đỉnh tải 96.22 MB, ổn định lại ở 70.43 MB (+10.7 MB drift sau 32 phút, GC hoạt động lành mạnh, kết luận không bị rò rỉ bộ nhớ).
+  > 6. Đã lập các tệp bằng chứng thực nghiệm:
+  >    - `evidence/load_test_metrics.txt`
+  >    - `evidence/stress_breaking_point.txt`
+  >    - `evidence/spike_recovery_evidence.txt`
+  >    - `evidence/endurance_hardware_threshold.txt`
+  >    - `evidence/resource_monitor_log.csv`
+
+
