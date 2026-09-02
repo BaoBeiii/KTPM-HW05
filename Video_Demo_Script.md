@@ -6,6 +6,11 @@
 > **Thời lượng video khuyến nghị:** 3 đến 5 phút  
 > **Định dạng quay:** Màn hình máy tính + Giọng thuyết minh (Screen Recording with Audio Commentary)  
 
+> [!IMPORTANT]
+> ### 🎥 LIÊN KẾT VIDEO DEMO CHÍNH THỨC (OFFICIAL DEMO LINKS)
+> * 🎬 **Video Demo Task 1 (Đo tải k6, Bẫy 7 bug SUT, Phản biện AI & HTML Dashboard):** [https://youtu.be/leNk4TxJ1D4](https://youtu.be/leNk4TxJ1D4)
+> * 🤖 **Video Demo Agent Skill (Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD):** [https://youtu.be/vSyRLXkW-7k](https://youtu.be/vSyRLXkW-7k)
+
 ---
 
 ## ⏱️ PHÂN BỔ THỜI LƯỢNG TỔNG QUAN

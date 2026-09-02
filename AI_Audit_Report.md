@@ -5,6 +5,11 @@
 > **Chính sách AI:** Tuân thủ chiến lược AI-First & Human Review theo Mục 2, Mục 9 và Mẫu Báo cáo Phụ lục đề bài.  
 > **Tuyên bố sử dụng AI:** *"Tôi có sử dụng công cụ AI (Google Antigravity / Gemini 3.7 Flash) để hỗ trợ thiết kế kịch bản kiểm thử, tham số hóa dữ liệu và phân tích kết quả log. Mọi kết quả đầu ra của AI đều được tôi rà soát tỉ mỉ, đối chiếu trực tiếp với mã nguồn SUT và thực hiện từ 4 đến 5 sửa đổi chuyên sâu cho mỗi phần việc."*
 
+> [!IMPORTANT]
+> ### 🎥 LIÊN KẾT VIDEO DEMO BÁO CÁO (YOUTUBE DEMO LINKS)
+> * 🎬 **Video Demo Task 1 (Đo tải k6, Bẫy 7 bug SUT, Phản biện AI & HTML Dashboard):** [https://youtu.be/leNk4TxJ1D4](https://youtu.be/leNk4TxJ1D4)
+> * 🤖 **Video Demo Agent Skill (Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD):** [https://youtu.be/vSyRLXkW-7k](https://youtu.be/vSyRLXkW-7k)
+
 ---
 
 ## BẢNG TỔNG KẾT CÁC PHIÊN LÀM VIỆC & ĐIỀU CHỈNH CỦA CON NGƯỜI

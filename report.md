@@ -13,6 +13,11 @@
 > **Môi trường máy trạm đo đạc:** `DESKTOP-BEIZU` (Node.js v24.11.0, k6 v2.1.0, Windows 11)  
 > **Hệ thống kiểm thử (SUT):** EShop Application (`https://github.com/ttbhanh/eshop-sut.git`)  
 
+> [!IMPORTANT]
+> ### 🎥 LIÊN KẾT VIDEO DEMO BÁO CÁO (YOUTUBE DEMO LINKS)
+> * 🎬 **Video Demo Task 1 (Đo tải k6, Bẫy 7 bug SUT, Phản biện AI & HTML Dashboard):** [https://youtu.be/leNk4TxJ1D4](https://youtu.be/leNk4TxJ1D4)
+> * 🤖 **Video Demo Agent Skill (Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD):** [https://youtu.be/vSyRLXkW-7k](https://youtu.be/vSyRLXkW-7k)
+
 ---
 
 ## MỤC LỤC
@@ -362,6 +367,9 @@ graph TD
 5. [test_cases.md](./test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
 6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
 7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+8. 🎥 **Video Demo Trực Tuyến**:
+   - [Video Demo Task 1 (YouTube)](https://youtu.be/leNk4TxJ1D4): Đo tải k6, bẫy 7 bug SUT, phản biện AI & HTML Dashboard.
+   - [Video Demo Agent Skill (YouTube)](https://youtu.be/vSyRLXkW-7k): Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD.
 
 ### 10.2 Trích Lục Lịch Sử Git Commits (Trích từ [git_commit_log.txt](./git_commit_log.txt))
 ```text

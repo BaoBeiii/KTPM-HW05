@@ -8,6 +8,11 @@
 > **Môi trường đo đạc:** Máy trạm `DESKTOP-BEIZU` (Windows 11, Node.js v24.11.0, k6 v2.1.0)  
 > **Chiến lược kiểm thử:** AI-Assisted Workflow & Rigorous Human Critique (AI-First kết hợp Phản biện Con người sâu sắc)  
 
+> [!IMPORTANT]
+> ### 🎥 LIÊN KẾT VIDEO DEMO BÁO CÁO (YOUTUBE DEMO LINKS)
+> * 🎬 **Video Demo Task 1 (Đo tải k6, Bẫy 7 bug SUT, Phản biện AI & HTML Dashboard):** [https://youtu.be/leNk4TxJ1D4](https://youtu.be/leNk4TxJ1D4)
+> * 🤖 **Video Demo Agent Skill (Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD):** [https://youtu.be/vSyRLXkW-7k](https://youtu.be/vSyRLXkW-7k)
+
 ---
 
 ## 🌟 MỤC LỤC & DANH MỤC BÁO CÁO BÀN GIAO
@@ -256,6 +261,9 @@ Chi tiết phân tích mã nguồn và các khối so sánh Before/After xem tr�
 5. [test_cases.md](./test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
 6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
 7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+8. 🎥 **Video Demo Trực Tuyến**:
+   - [Video Demo Task 1 (YouTube)](https://youtu.be/leNk4TxJ1D4): Đo tải k6, bẫy 7 bug SUT, phản biện AI & HTML Dashboard.
+   - [Video Demo Agent Skill (YouTube)](https://youtu.be/vSyRLXkW-7k): Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD.
 
 ---
 
