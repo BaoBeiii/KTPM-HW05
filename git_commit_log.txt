@@ -1,4 +1,6 @@
-﻿4f0ff6b 2026-09-02 23:34:39 +0700 | docs: add YouTube video demo links to headers of all report files [BaoBeiii]
+﻿04f5d08 2026-09-02 23:39:45 +0700 | feat(docs): export all markdown reports to publication-grade A4 PDF documents [BaoBeiii]
+6421eb5 2026-09-02 23:35:09 +0700 | chore(evidence): sync git_commit_log.txt with recent commits [BaoBeiii]
+4f0ff6b 2026-09-02 23:34:39 +0700 | docs: add YouTube video demo links to headers of all report files [BaoBeiii]
 bae2452 2026-09-02 23:30:16 +0700 | feat: add resource monitor log CSV to evidence directory [BaoBeiii]
 1fda730 2026-09-02 22:09:00 +0700 | refactor(evidence): move git_commit_log.txt to repository root alongside reports [BaoBeiii]
 a956eb4 2026-09-02 22:00:49 +0700 | refactor(docs): use relative repository paths for all file links [BaoBeiii]
