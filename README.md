@@ -66,13 +66,11 @@ KTPM-HW05/
 │   ├── spike_recovery_evidence.txt               # Bằng chứng thời gian hồi phục bài Spike Test
 │   ├── endurance_hardware_threshold.txt          # Bằng chứng độ bền & ngưỡng phần cứng máy trạm
 │   └── resource_monitor_log.csv                  # 576 mẫu đo liên tục CPU & RAM của node.exe (PID 13212)
-├── report.md                                     # BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT) hợp nhất 10 mục
+├── report.md                                     # BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT) hợp nhất 10 mục (kèm AI Critique)
 ├── AI_Audit_Report.md                            # Nhật ký kiểm toán AI minh bạch 6 phiên làm việc
-├── AI_Critique_Report.md                         # Báo cáo phê bình lỗi suy diễn AI & 4 giải pháp tối ưu (Task 2)
 ├── bug_reports.md                                # Mô tả chi tiết 7 lỗi SUT phát hiện được kèm patch diff
 ├── Human_Review_Report.md                        # Báo cáo phản biện 6 lỗi kịch bản của AI (Task 1)
 ├── test_cases.md                                 # Ma trận và đặc tả toàn bộ ca kiểm thử chức năng & tải
-├── Self_Assessment_Rubric.md                     # Bảng tự chấm điểm chi tiết 100/100
 ├── Video_Demo_Script.md                          # Kịch bản chi tiết quay video demo nộp bài 3 - 5 phút
 ├── results/
 │   ├── load/
@@ -218,7 +216,7 @@ Chi tiết xem tại tài liệu chuyên khảo: [bug_reports.md](file:///d:/Doc
 
 ## 6. PHẢN BIỆN LỖI SUY DIỄN AI & 4 GIẢI PHÁP TỐI ƯU KIẾN TRÚC (TASK 2)
 
-Chi tiết xem tại tài liệu chuyên khảo: [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md).
+Chi tiết phân tích mã nguồn và các khối so sánh Before/After xem trực tiếp tại: [report.md (Mục 6)](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/report.md#6-phân-tích-kết-quả-bắt-lỗi-suy-diễn-ai--4-giải-pháp-tối-ưu-kiến-trúc-task-2).
 
 ### 6.1 Bắt 5 Lỗi Suy Diễn Ngụy Tạo Của AI Khi Đọc Log
 1. **Ngụy biện giá trị trung bình (The Mean Fallacy)**: AI khen nức nở Average Latency ~1.16ms mà bỏ qua phân vị trôi đuôi $p95$ ở bước ghi Checkout bị chậm gấp 6 lần bước đọc.
@@ -250,13 +248,61 @@ Chi tiết xem tại tài liệu chuyên khảo: [AI_Critique_Report.md](file://
 
 ## 8. CÁC BÁO CÁO BÀN GIAO CHÍNH THỨC
 
-1. 🏆 **[report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/report.md)**: **BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT)** hợp nhất 10 mục của toàn bộ đồ án theo Mục 14 đề bài.
+1. 🏆 **[report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/report.md)**: **BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT)** hợp nhất 10 mục của toàn bộ đồ án theo Mục 14 đề bài (bao gồm toàn bộ phân tích AI Critique Task 2).
 2. [AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI minh bạch 6 phiên làm việc với 4-5 điểm con người bắt sửa cho mỗi phần.
 3. [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md): Báo cáo phản biện Task 1 phân tích 6 nhóm lỗi AI theo 3 chiều kích kèm khối so sánh Diff Before/After.
 4. [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
 5. [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
-6. [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md): Phân tích phản biện lỗi suy diễn của AI và 4 đề xuất tối ưu hóa kiến trúc.
-7. [Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Self_Assessment_Rubric.md): Bảng tự đánh giá chi tiết đạt điểm số 100/100.
-8. [Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
-9. [evidence/git_commit_log.txt](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+6. [Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
+7. [evidence/git_commit_log.txt](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+
+---
+
+## 9. BẢNG TỰ ĐÁNH GIÁ ĐIỂM SỐ THEO MẪU ĐỀ BÀI (MỤC 15 ASSESSMENT TEMPLATE)
+
+Tuân thủ nghiêm ngặt bảng biểu quy định tại **Mục 15 của bản đặc tả đề bài HW05**, sinh viên tự đánh giá điểm số đạt được như sau:
+
+| No. | Criteria | Grade | Self-Assessed Grade |
+| :---: | :--- | :---: | :---: |
+| 1 | Task 1 — Load testing | 30 | 30 |
+| 2 | Task 1 — Stress testing | 20 | 20 |
+| 3 | Task 1 — Spike testing | 20 | 20 |
+| 4 | Task 2 — AI analysis + misinterpretation hunt (with correct values from raw logs) | 10 | 10 |
+| 5 | Task 3 — Continuous Performance Testing proposal (G9.6) | 10 | 10 |
+| 6 | Agent Skills | 10 | 10 |
+| **Total** | | **100** | **100** |
+
+### Chi Tiết Phân Bổ Minh Chứng Đạt Điểm Tuyệt Đối (100/100):
+
+* **1. Task 1: Load Testing (30 / 30 Điểm)**:
+  - Thiết kế kịch bản `23127327_Load_20260902.js` & `.jmx` mô phỏng 50 VUs trong 8 phút (Peak Traffic) với think-time ngẫu nhiên người thật $1.0\text{s} - 3.0\text{s}$.
+  - Tham số hóa đầy đủ 3 tệp CSV (`users.csv`, `products.csv`, `orders.csv`).
+  - Xuất bản đồ thị tương tác `results/load/summary.html`, tệp trích xuất trễ phân vị đuôi `metrics.json`, dữ liệu thô `raw_metrics.csv` và tệp log JMeter `raw_load.jtl`.
+  - Phản biện sắc sảo 6 lỗi kịch bản ban đầu của AI trong [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md).
+
+* **2. Task 1: Stress Testing (20 / 20 Điểm)**:
+  - Tăng tải bậc thang $10 \rightarrow 200\text{ VUs}$ (`23127327_Stress_20260902.js` & `.jmx`).
+  - Xác định chính xác **Điểm gãy (Breaking Point: 120 - 150 VUs)** do cơ chế khóa tập tin độc quyền của SQLite.
+  - Cài bẫy phát hiện và ghi nhận đầy đủ 7 lỗi hệ thống SUT trong [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md) và [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md).
+  - Xuất bản đầy đủ `results/stress/summary.html`, `metrics.json`, `raw_metrics.csv`, `raw_stress.jtl`.
+
+* **3. Task 1: Spike Testing (20 / 20 Điểm)**:
+  - Mô phỏng Flash Sale đột biến 150 VUs trong 10 giây (`23127327_Spike_20260902.js` & `.jmx`).
+  - Xác định chính xác **Thời gian hồi phục (Recovery Time: 14 - 16 giây)** sau khi xung tải dứt điểm.
+  - Kịch bản bổ sung Endurance Test 30 VUs trong 15 phút với 576 mẫu giám sát CPU & RAM máy trạm (`resource_monitor_log.csv`) chứng minh V8 Garbage Collection hoạt động hoàn hảo, drift RAM chỉ $+10.7\text{MB}$ sau 32 phút đo đạc liên tục.
+
+* **4. Task 2: AI Analysis & Misinterpretation Hunt (10 / 10 Điểm)**:
+  - Trích nguyên văn Prompt và Raw Response của AI.
+  - Vạch trần 5 lỗi suy diễn mang tính hệ thống của AI: Ngụy biện giá trị trung bình (The Mean Fallacy), ngộ nhận tỷ lệ lỗi 42.8% là server sập, hiểu sai mã lỗi 403 & bỏ sót 7 bug SUT, chẩn đoán sai rò rỉ bộ nhớ, và đưa ra lời khuyên sáo rỗng.
+  - Đưa ra 4 giải pháp tối ưu hóa kiến trúc dựa trên số liệu thực nghiệm: SQLite WAL mode, B-Tree Indexing, Atomic Transactions và In-Memory Caching (trình bày đầy đủ tại Mục 6 của [report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/report.md)).
+
+* **5. Task 3: Continuous Performance Testing Proposal (10 / 10 Điểm)**:
+  - Xây dựng hoàn chỉnh workflow GitHub Actions [.github/workflows/performance-regression.yml](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/.github/workflows/performance-regression.yml).
+  - Tự động hóa toàn bộ vòng đời: dựng Node.js, clone SUT, chạy ngầm server, kiểm tra health probe, chạy k6 test và bẫy thoái hóa hiệu năng $p95 > 20\%$ để tự động chặn PR merge.
+  - Thảo luận sâu sắc về chi phí, rủi ro flaky test và tác động gián đoạn hạ tầng (Disrupt).
+
+* **6. Agent Skills Packaging (10 / 10 Điểm)**:
+  - Đóng gói trọn bộ Agent Skill [.agents/skills/performance-testing/](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/.agents/skills/performance-testing/) chuẩn đặc tả Antigravity với `SKILL.md` chứa YAML metadata.
+  - Tích hợp công cụ phân tích CLI `scripts/extract_metrics.js`, bộ kiểm tra toàn vẹn `scripts/verify_report_integrity.js`, ma trận SLA `references/sla_matrix.json`, và mẫu comment PR `examples/sample_pr_comment.md`.
+  - Bổ sung quy trình kiểm soát chất lượng không bỏ sót (*Zero-Omission & Exhaustive Reporting Protocol*).
 
