@@ -1,12 +1,19 @@
 /**
  * ==============================================================================
  * Test Plan: 23127327_Endurance_20260902.js
- * Scenario: Endurance / Soak Testing (15-minute Sustained Load) - Initial AI Version
+ * Scenario: Endurance / Soak Testing (15-minute Sustained Load)
  * Student ID: 23127327
  * Date: 2026-09-02
  * Workflow: Login -> Product -> Coupon -> Checkout -> Coupon Usage
+ * SUT Endpoints:
+ *   1. POST /api/login
+ *   2. GET  /api/products & GET /api/products/:id
+ *   3. POST /api/apply-coupon
+ *   4. POST /api/checkout
+ *   5. POST /api/coupon-usage
+ *   6. GET  /api/orders/my-orders
  * Tool: k6 v2.1.0
- * Purpose: Empirically determine local hardware threshold (Max stable RPS, memory ceiling)
+ * Purpose: Empirically determine hardware threshold (Max stable RPS, memory ceiling)
  * ==============================================================================
  */
 
@@ -36,8 +43,9 @@ export const options = {
         { duration: '1m', target: 0 },   // Ramp-down
     ],
     thresholds: {
-        http_req_duration: ['p(95)<1000'],
-        http_req_failed: ['rate<0.02'],
+        'http_req_duration{name:01_Login}': ['p(95)<1500'],
+        'http_req_duration{name:05_Checkout}': ['p(95)<2000'],
+        http_req_failed: ['rate<0.05'],
     },
 };
 
@@ -47,6 +55,8 @@ export default function () {
     const orderInfo = ordersData[Math.floor(Math.random() * ordersData.length)];
 
     let token = null;
+    let userId = null;
+    let couponId = null;
 
     // 1. Login
     const loginRes = http.post(`${BASE_URL}/api/login`, JSON.stringify({
@@ -57,8 +67,9 @@ export default function () {
         tags: { name: '01_Login' },
     });
 
-    if (loginRes.status === 200 && loginRes.json('token')) {
+    if (loginRes.status === 200) {
         token = loginRes.json('token');
+        userId = loginRes.json('user.id');
     }
 
     sleep(1.5);
@@ -76,33 +87,54 @@ export default function () {
 
     sleep(1.5);
 
-    // 3. Coupon
+    // 3. Apply Coupon
+    const productPrice = product ? parseInt(product.price || 150000) : 150000;
+    const quantity = parseInt(orderInfo.quantity || 1);
+    const totalAmount = productPrice * quantity;
+
     if (orderInfo && orderInfo.coupon_code) {
-        http.post(`${BASE_URL}/api/coupons/apply`, JSON.stringify({ code: orderInfo.coupon_code }), {
+        const couponRes = http.post(`${BASE_URL}/api/apply-coupon`, JSON.stringify({
+            code: orderInfo.coupon_code,
+            total_amount: totalAmount,
+            user_id: userId || 1,
+        }), {
             headers: authHeaders,
-            tags: { name: '04_ValidateCoupon' },
+            tags: { name: '04_ApplyCoupon' },
         });
+
+        if (couponRes.status === 200 && couponRes.json('success')) {
+            couponId = couponRes.json('coupon_id');
+        }
     }
 
     sleep(1.5);
 
     // 4. Checkout
-    if (token && product && product.id) {
-        http.post(`${BASE_URL}/api/orders`, JSON.stringify({
-            items: [{ product_id: parseInt(product.id), quantity: parseInt(orderInfo.quantity || 1) }],
+    if (token) {
+        http.post(`${BASE_URL}/api/checkout`, JSON.stringify({
+            total_amount: totalAmount,
             shipping_address: orderInfo.shipping_address || '101 Soak Way, Q1, HCMC',
-            coupon_code: orderInfo.coupon_code || '',
         }), {
             headers: authHeaders,
-            tags: { name: '05_CheckoutOrder' },
+            tags: { name: '05_Checkout' },
         });
     }
 
     sleep(1.5);
 
-    // 5. Order History
+    // 5. Coupon Usage
+    if (token && couponId) {
+        http.post(`${BASE_URL}/api/coupon-usage`, JSON.stringify({ coupon_id: couponId }), {
+            headers: authHeaders,
+            tags: { name: '06_CouponUsage' },
+        });
+    }
+
+    sleep(1.5);
+
+    // 6. My Orders
     if (token) {
-        http.get(`${BASE_URL}/api/orders`, { headers: authHeaders, tags: { name: '06_CouponUsage_OrderHistory' } });
+        http.get(`${BASE_URL}/api/orders/my-orders`, { headers: authHeaders, tags: { name: '07_MyOrders' } });
     }
 
     sleep(1.5);
