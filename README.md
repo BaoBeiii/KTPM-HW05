@@ -72,11 +72,18 @@ KTPM-HW05/
 │   ├── endurance_hardware_threshold.txt          # Bằng chứng độ bền & ngưỡng phần cứng máy trạm
 │   └── resource_monitor_log.csv                  # 576 mẫu đo liên tục CPU & RAM của node.exe (PID 13212)
 ├── report.md                                     # BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT) hợp nhất 10 mục (kèm AI Critique)
+├── report.pdf                                    # Bản PDF báo cáo chính thức (A4, Typography cao cấp)
 ├── AI_Audit_Report.md                            # Nhật ký kiểm toán AI minh bạch 6 phiên làm việc
+├── AI_Audit_Report.pdf                           # Bản PDF nhật ký kiểm toán AI
 ├── bug_reports.md                                # Mô tả chi tiết 7 lỗi SUT phát hiện được kèm patch diff
+├── bug_reports.pdf                               # Bản PDF báo cáo 7 lỗi SUT
 ├── Human_Review_Report.md                        # Báo cáo phản biện 6 lỗi kịch bản của AI (Task 1)
+├── Human_Review_Report.pdf                       # Bản PDF phản biện kịch bản AI Task 1
 ├── test_cases.md                                 # Ma trận và đặc tả toàn bộ ca kiểm thử chức năng & tải
+├── test_cases.pdf                                # Bản PDF ma trận ca kiểm thử
 ├── Video_Demo_Script.md                          # Kịch bản chi tiết quay video demo nộp bài 3 - 5 phút
+├── Video_Demo_Script.pdf                         # Bản PDF kịch bản video demo
+├── README.pdf                                    # Bản PDF hướng dẫn dự án & Bảng tự đánh giá
 ├── git_commit_log.txt                            # Trích lục toàn bộ lịch sử Git commit dạng text
 ├── results/
 │   ├── load/
@@ -254,14 +261,15 @@ Chi tiết phân tích mã nguồn và các khối so sánh Before/After xem tr�
 
 ## 8. CÁC BÁO CÁO BÀN GIAO CHÍNH THỨC
 
-1. 🏆 **[report.md](./report.md)**: **BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT)** hợp nhất 10 mục của toàn bộ đồ án theo Mục 14 đề bài (bao gồm toàn bộ phân tích AI Critique Task 2).
-2. [AI_Audit_Report.md](./AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI minh bạch 6 phiên làm việc với 4-5 điểm con người bắt sửa cho mỗi phần.
-3. [Human_Review_Report.md](./Human_Review_Report.md): Báo cáo phản biện Task 1 phân tích 6 nhóm lỗi AI theo 3 chiều kích kèm khối so sánh Diff Before/After.
-4. [bug_reports.md](./bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
-5. [test_cases.md](./test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
-6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
-7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
-8. 🎥 **Video Demo Trực Tuyến**:
+1. 🏆 **[report.md](./report.md)** (kèm bản in **[report.pdf](./report.pdf)**): **BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT)** hợp nhất 10 mục của toàn bộ đồ án theo Mục 14 đề bài (bao gồm toàn bộ phân tích AI Critique Task 2).
+2. [AI_Audit_Report.md](./AI_Audit_Report.md) (kèm bản in [AI_Audit_Report.pdf](./AI_Audit_Report.pdf)): Nhật ký kiểm toán tương tác AI minh bạch 6 phiên làm việc với 4-5 điểm con người bắt sửa cho mỗi phần.
+3. [Human_Review_Report.md](./Human_Review_Report.md) (kèm bản in [Human_Review_Report.pdf](./Human_Review_Report.pdf)): Báo cáo phản biện Task 1 phân tích 6 nhóm lỗi AI theo 3 chiều kích kèm khối so sánh Diff Before/After.
+4. [bug_reports.md](./bug_reports.md) (kèm bản in [bug_reports.pdf](./bug_reports.pdf)): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
+5. [test_cases.md](./test_cases.md) (kèm bản in [test_cases.pdf](./test_cases.pdf)): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
+6. [Video_Demo_Script.md](./Video_Demo_Script.md) (kèm bản in [Video_Demo_Script.pdf](./Video_Demo_Script.pdf)): Kịch bản quay video demo nộp bài chi tiết từng giây.
+7. [README.md](./README.md) (kèm bản in [README.pdf](./README.pdf)): Báo cáo tổng kết & Bảng tự đánh giá 100/100.
+8. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+9. 🎥 **Video Demo Trực Tuyến**:
    - [Video Demo Task 1 (YouTube)](https://youtu.be/leNk4TxJ1D4): Đo tải k6, bẫy 7 bug SUT, phản biện AI & HTML Dashboard.
    - [Video Demo Agent Skill (YouTube)](https://youtu.be/vSyRLXkW-7k): Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD.
 

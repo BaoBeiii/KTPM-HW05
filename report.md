@@ -360,14 +360,15 @@ graph TD
 ## 10. PHỤ LỤC: DANH MỤC TỆP BÀN GIAO & TRÍCH LỤC GIT COMMIT LOG
 
 ### 10.1 Danh Mục Các Liên Kết Báo Cáo Chuyên Khảo Đi Kèm
-1. [README.md](./README.md): Hướng dẫn cài đặt, tổng quan dự án và Bảng tự đánh giá Self-Assessment (100/100).
-2. [AI_Audit_Report.md](./AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI 6 phiên làm việc có phân tách rõ 4-5 điểm con người bắt sửa.
-3. [Human_Review_Report.md](./Human_Review_Report.md): Phân tích phản biện 6 nhóm lỗi AI khi sinh kịch bản Task 1.
-4. [bug_reports.md](./bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
-5. [test_cases.md](./test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
-6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
-7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
-8. 🎥 **Video Demo Trực Tuyến**:
+1. [README.md](./README.md) (kèm bản in [README.pdf](./README.pdf)): Hướng dẫn cài đặt, tổng quan dự án và Bảng tự đánh giá Self-Assessment (100/100).
+2. [AI_Audit_Report.md](./AI_Audit_Report.md) (kèm bản in [AI_Audit_Report.pdf](./AI_Audit_Report.pdf)): Nhật ký kiểm toán tương tác AI 6 phiên làm việc có phân tách rõ 4-5 điểm con người bắt sửa.
+3. [Human_Review_Report.md](./Human_Review_Report.md) (kèm bản in [Human_Review_Report.pdf](./Human_Review_Report.pdf)): Phân tích phản biện 6 nhóm lỗi AI khi sinh kịch bản Task 1.
+4. [bug_reports.md](./bug_reports.md) (kèm bản in [bug_reports.pdf](./bug_reports.pdf)): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
+5. [test_cases.md](./test_cases.md) (kèm bản in [test_cases.pdf](./test_cases.pdf)): Đặc tả ma trận kiểm thử FR-01..FR-19.
+6. [Video_Demo_Script.md](./Video_Demo_Script.md) (kèm bản in [Video_Demo_Script.pdf](./Video_Demo_Script.pdf)): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
+7. [report.pdf](./report.pdf): Bản in PDF của Báo cáo chính toàn diện này.
+8. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+9. 🎥 **Video Demo Trực Tuyến**:
    - [Video Demo Task 1 (YouTube)](https://youtu.be/leNk4TxJ1D4): Đo tải k6, bẫy 7 bug SUT, phản biện AI & HTML Dashboard.
    - [Video Demo Agent Skill (YouTube)](https://youtu.be/vSyRLXkW-7k): Đóng gói Agent Skill Antigravity, CLI Metrics Gate & CI/CD.
 
