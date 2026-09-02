@@ -361,8 +361,9 @@ graph TD
 4. [bug_reports.md](./bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
 5. [test_cases.md](./test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
 6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
+7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
 
-### 10.2 Trích Lục Lịch Sử Git Commits (Trích từ `evidence/git_commit_log.txt`)
+### 10.2 Trích Lục Lịch Sử Git Commits (Trích từ [git_commit_log.txt](./git_commit_log.txt))
 ```text
 205dd9c feat(skill): introduce Zero-Omission Protocol and automated report parity linter
 7c0a1a6 docs(bugs): add comprehensive analysis and test verification for BUG-06 order state transition

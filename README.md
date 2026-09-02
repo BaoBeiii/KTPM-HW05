@@ -72,6 +72,7 @@ KTPM-HW05/
 ├── Human_Review_Report.md                        # Báo cáo phản biện 6 lỗi kịch bản của AI (Task 1)
 ├── test_cases.md                                 # Ma trận và đặc tả toàn bộ ca kiểm thử chức năng & tải
 ├── Video_Demo_Script.md                          # Kịch bản chi tiết quay video demo nộp bài 3 - 5 phút
+├── git_commit_log.txt                            # Trích lục toàn bộ lịch sử Git commit dạng text
 ├── results/
 │   ├── load/
 │   │   ├── summary.html                          # Dashboard HTML tương tác kết quả Load Test
@@ -254,7 +255,7 @@ Chi tiết phân tích mã nguồn và các khối so sánh Before/After xem tr�
 4. [bug_reports.md](./bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
 5. [test_cases.md](./test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
 6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
-7. [evidence/git_commit_log.txt](./evidence/git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
+7. [git_commit_log.txt](./git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
 
 ---
 
