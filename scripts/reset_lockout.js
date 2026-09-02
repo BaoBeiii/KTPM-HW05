@@ -4,9 +4,19 @@
  * Author: BaoBeiii (23127327)
  */
 
-const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
+
+let sqlite3;
+try {
+    sqlite3 = require('sqlite3').verbose();
+} catch (e) {
+    try {
+        sqlite3 = require(path.resolve(__dirname, '../eshop-sut/backend/node_modules/sqlite3')).verbose();
+    } catch (e2) {
+        sqlite3 = require(path.resolve(__dirname, '../../eshop-sut/backend/node_modules/sqlite3')).verbose();
+    }
+}
 
 // Try locating database.sqlite in standard project locations
 const possibleDbPaths = [
