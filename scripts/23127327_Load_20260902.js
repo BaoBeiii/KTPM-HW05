@@ -19,7 +19,9 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { SharedArray } from 'k6/data';
-import papaparse from 'https://jslib.k6.io/papaparse/5.1.1/index.js';
+import papaparse from './papaparse.js';
+import { htmlReport } from './k6-reporter.js';
+import { textSummary } from './k6-summary.js';
 
 // Base Configuration
 const BASE_URL = __ENV.BASE_URL || 'http://localhost:3000';
@@ -77,7 +79,7 @@ export default function () {
         tags: { name: '01_Login' },
     });
 
-    const loginCheck = check(loginRes, {
+    check(loginRes, {
         'Login status is 200': (r) => r.status === 200,
         'Login returns token': (r) => r.json('token') !== undefined,
         'Login account not locked (not 403)': (r) => r.status !== 403,
@@ -204,4 +206,13 @@ export default function () {
     }
 
     sleep(Math.random() * 2 + 1);
+}
+
+// Generate Standalone HTML and JSON reports
+export function handleSummary(data) {
+    return {
+        'results/load/summary.html': htmlReport(data),
+        'results/load/metrics.json': JSON.stringify(data, null, 2),
+        stdout: textSummary(data, { indent: ' ', enableColors: true }),
+    };
 }

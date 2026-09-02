@@ -19,7 +19,9 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { SharedArray } from 'k6/data';
-import papaparse from 'https://jslib.k6.io/papaparse/5.1.1/index.js';
+import papaparse from './papaparse.js';
+import { htmlReport } from './k6-reporter.js';
+import { textSummary } from './k6-summary.js';
 
 const BASE_URL = __ENV.BASE_URL || 'http://localhost:3000';
 
@@ -174,4 +176,12 @@ export default function () {
     }
 
     sleep(1);
+}
+
+export function handleSummary(data) {
+    return {
+        'results/stress/summary.html': htmlReport(data),
+        'results/stress/metrics.json': JSON.stringify(data, null, 2),
+        stdout: textSummary(data, { indent: ' ', enableColors: true }),
+    };
 }
