@@ -1,0 +1,80 @@
+# PHỤ LỤC: BÁO CÁO KIỂM TOÁN TƯƠNG TÁC AI (AI AUDIT REPORT)
+
+> **Mã bài tập:** HW05-AI – Performance Testing  
+> **Sinh viên thực hiện:** BaoBeiii – MSSV: 23127327  
+> **Chính sách AI:** Tuân thủ chiến lược AI-First & Human Review theo Mục 2 và Mục 9 của đề bài.  
+> **Tuyên bố sử dụng AI:** *"Tôi có sử dụng công cụ AI (Google Antigravity / Gemini 3.7 Flash) để hỗ trợ thiết kế kịch bản kiểm thử, tham số hóa dữ liệu và phân tích kết quả log."*
+
+---
+
+## 1. Nhật ký Tương tác Giai đoạn 1: Thiết kế & Sinh Kịch bản Ban đầu
+
+### Phiên làm việc 1.1: Khảo sát Đặc tả Hệ thống & Lựa chọn Luồng End-to-End
+* **Thời gian (Timestamp):** `2026-09-02T13:45:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Khảo sát các phân hệ của SUT EShop (`https://github.com/ttbhanh/eshop-sut`) và lựa chọn luồng kiểm thử E2E phủ đủ 3 nhóm endpoint (Auth-heavy, Read-heavy, Transactional).
+* **Prompt của Người dùng:**
+  ```text
+  Đọc tài liệu đặc tả EShop (Pool A, Pool B, Pool C) và yêu cầu Mục 5 của HW05. 
+  Hãy phân tích và thiết kế một luồng kiểm thử End-to-End (E2E) logic, thực tế của người dùng, 
+  phủ trọn vẹn cả 3 nhóm endpoint: Auth-heavy, Read-heavy, và Transactional.
+  Workflow được chọn là: Login -> Product -> Coupon -> Checkout -> Coupon Usage.
+  Hãy chỉ rõ các endpoint tương ứng và dữ liệu tham số hóa cần chuẩn bị.
+  ```
+* **Phản hồi của AI (AI Raw Output):**
+  > Trợ lý AI phân tích và đề xuất ánh xạ luồng người dùng:
+  > 1. `Auth-heavy`: `POST /api/login` - gửi `{email, password}`, nhận về JWT `token` và thông tin `user`. Cần lưu ý cơ chế khóa tài khoản FR-02 (3 lần sai khóa 30s-180s).
+  > 2. `Read-heavy`: `GET /api/products` (duyệt danh sách) và `GET /api/products/:id` (xem chi tiết sản phẩm).
+  > 3. `Validation / Read`: `POST /api/coupons/apply` - kiểm tra mã coupon (`SAVE10`, `BIGBUY`, `VIP100`).
+  > 4. `Transactional`: `POST /api/orders` - gửi `{items, shipping_address, coupon_code}`, backend tự tính toán `final_amount = total - discount`.
+  > 5. `Transactional / Audit`: `GET /api/orders` - xem lịch sử đơn hàng và kiểm tra ghi nhận vào bảng `coupon_usage`.
+  > Dữ liệu cần thiết lập: `data/users.csv`, `data/products.csv`, `data/orders.csv`.
+
+---
+
+### Phiên làm việc 1.2: Thiết kế Tham số Kịch bản Load, Stress, Spike & Endurance
+* **Thời gian (Timestamp):** `2026-09-02T13:55:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Tính toán các tham số tải thực tế (VU count, ramp-up, think-time, duration) và định nghĩa SLA cho k6 và JMeter.
+* **Prompt của Người dùng:**
+  ```text
+  Hãy giúp tôi thiết lập các thông số tải thực tế cho 3 kịch bản chính và 1 bài test độ bền:
+  1. Load Test: Tải giờ cao điểm (Peak Traffic).
+  2. Stress Test: Tăng tải bậc thang tìm điểm gãy (Breaking Point).
+  3. Spike Test: Đột biến tức thì mô phỏng flash sale.
+  4. Endurance Test: Chạy duy trì 15 phút tìm ngưỡng phần cứng thực nghiệm.
+  Sinh mã nguồn ban đầu bằng k6 và JMeter (.jmx) cho MSSV 23127327 theo quy ước {StudentID}_{ScenarioType}_20260902.
+  ```
+* **Phản hồi của AI (AI Raw Output):**
+  > AI đề xuất các cấu hình stages:
+  > - **Load**: 50 VUs (Ramp-up 2m -> Hold 5m -> Ramp-down 1m).
+  > - **Stress**: 10 -> 30 -> 70 -> 120 -> 200 VUs (mỗi bậc 45s).
+  > - **Spike**: 5 VUs (30s) -> Surge 150 VUs (10s) -> Hold (30s) -> Drop 5 VUs (10s) -> Monitor (30s).
+  > - **Endurance**: 30 VUs duy trì liên tục trong 15 phút.
+  > - Sinh các file:
+  >   - `scripts/23127327_Load_20260902.js` & `.jmx` (View Results Tree)
+  >   - `scripts/23127327_Stress_20260902.js` & `.jmx` (Summary Report)
+  >   - `scripts/23127327_Spike_20260902.js` & `.jmx` (Aggregate Report)
+  >   - `scripts/23127327_Endurance_20260902.js`
+  > *(Ghi chú kiểm toán: Bản sinh mã ban đầu của AI có một số hạn chế điển hình như: think-time bị gán cứng cố định `sleep(1)`, assertion kiểm tra status hời hợt `r.status === 200`, và chưa có cơ chế bẫy lỗi lockout 403. Các thiếu sót này được ghi nhận để sinh viên thực hiện Human Review tại Giai đoạn 2).*
+
+---
+
+### Phiên làm việc 1.3: Xây dựng Bộ Dữ liệu Tham số hóa & Script Tiện ích CSDL
+* **Thời gian (Timestamp):** `2026-09-02T14:05:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Xây dựng tập dữ liệu CSV và các script Node.js quản lý trạng thái SQLite.
+* **Prompt của Người dùng:**
+  ```text
+  Xây dựng 3 file CSV trong thư mục data/ gồm users.csv (50 tài khoản), products.csv (nhiều dải giá), 
+  và orders.csv (địa chỉ, coupon). Đồng thời tạo script reset CSDL và script mở khóa tài khoản 
+  khi bị dính lockout FR-02.
+  ```
+* **Phản hồi của AI (AI Raw Output):**
+  > Sinh các file:
+  > - `data/users.csv`: Chứa 52 dòng gồm tài khoản admin, test, user1..user50 và tài khoản lỗi test lockout.
+  > - `data/products.csv`: 15 sản phẩm từ 65.000đ đến 1.200.000đ.
+  > - `data/orders.csv`: 20 bản ghi đơn hàng với các mã `SAVE10`, `BIGBUY`, `VIP100`.
+  > - `scripts/reset_lockout.js`: Chạy SQL `UPDATE users SET login_attempts = 0, locked_until = NULL;`.
+  > - `scripts/seed_test_users.js`: Đọc CSV nạp tự động 50 users vào `database.sqlite`.
+  > - `scripts/reset_database.js`: Khôi phục toàn diện CSDL về trạng thái sạch ban đầu.
