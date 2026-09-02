@@ -75,7 +75,7 @@ Theo chiến lược AI-First, sinh viên đã dẫn dắt AI thiết kế 4 k�
 
 ## 3. PHẢN BIỆN CỦA CON NGƯỜI & KHẮC PHỤC LỖI KỊCH BẢN AI (HUMAN REVIEW TASK 1)
 
-Chi tiết đối chiếu xem tại [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md).
+Chi tiết đối chiếu xem tại [Human_Review_Report.md](./Human_Review_Report.md).
 
 Khi sinh viên rà soát bản sinh kịch bản ban đầu của AI, đã phát hiện **6 nhóm sai sót nghiêm trọng**:
 
@@ -136,7 +136,7 @@ Khi sinh viên rà soát bản sinh kịch bản ban đầu của AI, đã phát
 
 ## 4. BÁO CÁO BẪY 7 LỖI HỆ THỐNG CỦA SUT (BUG HUNTING & SUT DEFECT ANALYSIS)
 
-Chi tiết xem tại [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md) và [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md).
+Chi tiết xem tại [bug_reports.md](./bug_reports.md) và [test_cases.md](./test_cases.md).
 
 Sinh viên đã rà soát toàn bộ 573 dòng mã nguồn `eshop-sut/backend/server.js`, phát hiện và cài bẫy thành công **7 lỗi hệ thống**:
 
@@ -171,7 +171,7 @@ Toàn bộ 4 bài kiểm thử được thực thi trên máy trạm `DESKTOP-BE
 | **Đánh giá & Ngưỡng thực nghiệm** | Đạt chuẩn SLA toàn diện | **Điểm gãy: 120 - 150 VUs** | **Hồi phục sau: ~14 - 16s** | **Không rò rỉ RAM** (drift +10.7MB) |
 
 ### 5.2 Bằng Chứng Giám Sát Tài Nguyên Hệ Thống (Telemetry Evidence)
-Script `scripts/monitor_resources.ps1` đã ghi nhận liên tục **576 mẫu dữ liệu** trong suốt 32 phút đo tải vào [evidence/resource_monitor_log.csv](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/resource_monitor_log.csv):
+Script `scripts/monitor_resources.ps1` đã ghi nhận liên tục **576 mẫu dữ liệu** trong suốt 32 phút đo tải vào [evidence/resource_monitor_log.csv](./evidence/resource_monitor_log.csv):
 * **Working Set RAM ban đầu (T=0)**: `59.73 MB`.
 * **Working Set RAM lúc đỉnh tải (200 VUs / 15m soak)**: `96.22 MB`.
 * **Working Set RAM kết thúc bài test**: `70.43 MB`.
@@ -179,7 +179,7 @@ Script `scripts/monitor_resources.ps1` đã ghi nhận liên tục **576 mẫu d
 * **Độ trôi bộ nhớ ròng (Net Memory Drift)**: $+10.70\text{ MB}$ (sau 32 phút chịu tải liên tục với hơn 43.000 requests, V8 Garbage Collection đã giải phóng bộ nhớ thừa thành công $\rightarrow$ **Hệ thống an toàn, không có rò rỉ bộ nhớ**).
 
 ### 5.3 Xác Định Ngưỡng Phần Cứng Thực Nghiệm (Hardware Threshold)
-Chi tiết tại [evidence/endurance_hardware_threshold.txt](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/endurance_hardware_threshold.txt):
+Chi tiết tại [evidence/endurance_hardware_threshold.txt](./evidence/endurance_hardware_threshold.txt):
 * **Thông lượng bão hòa tối đa (Saturation Throughput)**: $\approx 135\text{ req/s}$.
 * **Ngưỡng vận hành khuyến nghị (Optimal Operating Point)**: $30 - 50\text{ VUs}$ ($\approx 25 - 45\text{ req/s}$).
 * **Trần chịu tải đồng thời (Concurrency Ceiling)**: $\approx 120\text{ concurrent VUs}$ trước khi SQLite xảy ra xung đột khóa ghi tập tin (`SQLITE_BUSY`).
@@ -355,12 +355,12 @@ graph TD
 ## 10. PHỤ LỤC: DANH MỤC TỆP BÀN GIAO & TRÍCH LỤC GIT COMMIT LOG
 
 ### 10.1 Danh Mục Các Liên Kết Báo Cáo Chuyên Khảo Đi Kèm
-1. [README.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/README.md): Hướng dẫn cài đặt, tổng quan dự án và Bảng tự đánh giá Self-Assessment (100/100).
-2. [AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI 6 phiên làm việc có phân tách rõ 4-5 điểm con người bắt sửa.
-3. [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md): Phân tích phản biện 6 nhóm lỗi AI khi sinh kịch bản Task 1.
-4. [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
-5. [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
-6. [Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
+1. [README.md](./README.md): Hướng dẫn cài đặt, tổng quan dự án và Bảng tự đánh giá Self-Assessment (100/100).
+2. [AI_Audit_Report.md](./AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI 6 phiên làm việc có phân tách rõ 4-5 điểm con người bắt sửa.
+3. [Human_Review_Report.md](./Human_Review_Report.md): Phân tích phản biện 6 nhóm lỗi AI khi sinh kịch bản Task 1.
+4. [bug_reports.md](./bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
+5. [test_cases.md](./test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
+6. [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút chi tiết từng giây.
 
 ### 10.2 Trích Lục Lịch Sử Git Commits (Trích từ `evidence/git_commit_log.txt`)
 ```text

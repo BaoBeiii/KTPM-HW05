@@ -26,8 +26,8 @@
 ### PHẦN 1: GIỚI THIỆU BẢN THÂN & TỔNG QUAN CẤU TRÚC ĐỒ ÁN (0:00 – 0:30)
 
 * **Hành động trên màn hình:**
-  1. Mở file [README.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/README.md) hiển thị rõ Họ tên, MSSV: **23127327**.
-  2. Mở cây thư mục VS Code hiển thị rõ ràng: `data/`, `scripts/`, `results/`, `evidence/`, `reports/`, `.agents/`, `.github/`.
+  1. Mở file [README.md](./README.md) hiển thị rõ Họ tên, MSSV: **23127327**.
+  2. Mở cây thư mục VS Code hiển thị rõ ràng: `data/`, `scripts/`, `results/`, `evidence/`, `report.md`, `.agents/`, `.github/`.
 * **Lời thoại (Voice-over):**
   > *"Kính chào thầy cô và các bạn! Em là sinh viên thực hiện đồ án HW05 Kiểm thử hiệu năng ứng dụng Web với sự hỗ trợ của AI, MSSV: **23127327**.  
   > Dự án được xây dựng theo chiến lược AI-First kết hợp Phản biện Con người sâu sắc. Toàn bộ kịch bản đo tải, bộ dữ liệu tham số hóa, báo cáo kết quả và pipeline CI/CD đều được em tổ chức bài bản, cô lập hoàn toàn với repo nguồn SUT và được lưu trữ sạch sẽ trong repository này."*
@@ -39,7 +39,7 @@
 * **Hành động trên màn hình:**
   1. Mở Terminal PowerShell, hiển thị backend Node.js đang chạy trên cổng 3000.
   2. Trình chiếu lệnh k6 chạy kiểm thử.
-  3. Mở trình duyệt hiển thị file [results/load/summary.html](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/results/load/summary.html) và [results/stress/summary.html](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/results/stress/summary.html).
+  3. Mở trình duyệt hiển thị file [results/load/summary.html](./results/load/summary.html) và [results/stress/summary.html](./results/stress/summary.html).
   4. Rê chuột chỉ vào biểu đồ Response Time phân vị $p95$ và các bảng thống kê.
 * **Lời thoại (Voice-over):**
   > *"Em đã thực thi đo tải thực tế cho cả 4 kịch bản: Load Test 50 VUs, Stress Test 200 VUs, Spike Test 150 VUs và Endurance Test 15 phút.  
@@ -53,8 +53,8 @@
 
 * **Hành động trên màn hình:**
   1. Mở file `eshop-sut/backend/server.js`, cuộn đến dòng 398 (BUG-01) và dòng 162 (BUG-03).
-  2. Mở file [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md).
-  3. Mở file [evidence/load_test_metrics.txt](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/load_test_metrics.txt) chỉ vào số lượng lỗi k6 đã bắt được.
+  2. Mở file [bug_reports.md](./bug_reports.md).
+  3. Mở file [evidence/load_test_metrics.txt](./evidence/load_test_metrics.txt) chỉ vào số lượng lỗi k6 đã bắt được.
 * **Lời thoại (Voice-over):**
   > *"Bằng cách soi trực tiếp mã nguồn backend, em phát hiện SUT có tới 7 lỗi hệ thống nghiêm trọng mà AI ban đầu đã bỏ sót.  
   > Điển hình như BUG-01 tại dòng 398: Công thức giảm giá phần trăm bị nhân ngược `(1 - discount_value)`, khiến số tiền giảm bị âm và đội giá đơn hàng lên gấp 10 lần.  
@@ -66,7 +66,7 @@
 ### PHẦN 4: PHẢN BIỆN LỖI SUY DIỄN AI & 4 GIẢI PHÁP TỐI ƯU KIẾN TRÚC (2:30 – 3:30)
 
 * **Hành động trên màn hình:**
-  1. Mở file [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md).
+  1. Mở file [report.md (Mục 6)](./report.md#6-phân-tích-kết-quả-bắt-lỗi-suy-diễn-ai--4-giải-pháp-tối-ưu-kiến-trúc-task-2).
   2. Cuộn qua phần đối chiếu AI raw response và Human Critique.
   3. Dừng lại ở 4 giải pháp tối ưu hóa kiến trúc.
 * **Lời thoại (Voice-over):**
@@ -81,8 +81,8 @@
 ### PHẦN 5: DEMO CI/CD GITHUB ACTIONS & AGENT SKILL (3:30 – 4:30)
 
 * **Hành động trên màn hình:**
-  1. Mở file [.github/workflows/performance-regression.yml](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/.github/workflows/performance-regression.yml).
-  2. Mở thư mục [.agents/skills/performance-testing/](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/.agents/skills/performance-testing/).
+  1. Mở file [.github/workflows/performance-regression.yml](./.github/workflows/performance-regression.yml).
+  2. Mở thư mục [.agents/skills/performance-testing/](./.agents/skills/performance-testing/).
   3. Mở Terminal chạy lệnh:
      `node .agents/skills/performance-testing/scripts/extract_metrics.js results/load/metrics.json`
   4. Hiển thị bảng Markdown đánh giá SLA Gate in ra terminal với thông báo `GATE APPROVED`.
@@ -96,8 +96,8 @@
 ### PHẦN 6: TỔNG KẾT & LỜI KẾT (4:30 – 5:00)
 
 * **Hành động trên màn hình:**
-  1. Mở file [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md) hiển thị bảng tự chấm điểm 100/100.
-  2. Mở file [reports/AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/AI_Audit_Report.md) lướt qua bảng tổng kết 5 phiên làm việc với 4-5 điểm sửa đổi cụ thể cho từng phần.
+  1. Mở file [README.md (Mục 9)](./README.md#9-bảng-tự-đánh-giá-điểm-số-theo-mẫu-đề-bài-mục-15-assessment-template) hiển thị bảng tự chấm điểm 100/100.
+  2. Mở file [AI_Audit_Report.md](./AI_Audit_Report.md) lướt qua bảng tổng kết 6 phiên làm việc với 4-5 điểm sửa đổi cụ thể cho từng phần.
   3. Mở `git log --oneline` hiển thị chuỗi commit sạch sẽ và đều đặn.
 * **Lời thoại (Voice-over):**
   > *"Tổng kết lại, đồ án đã hoàn thành trọn vẹn 100% các yêu cầu từ Task 1, Task 2 đến Task 3. Báo cáo kiểm toán AI Audit Report ghi nhận minh bạch 5 phiên làm việc với từ 4 đến 5 sửa đổi mang tính quyết định của con người cho mỗi task.  

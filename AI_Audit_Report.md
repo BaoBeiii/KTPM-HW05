@@ -88,9 +88,9 @@ Người dùng chỉ đạo soi mã nguồn chi tiết và yêu cầu thực hi�
    - Cài bẫy bắt **BUG-01**: Công thức giảm giá phần trăm bị sai `total_amount * (1 - discount_value)` làm giá trị giảm bị âm và đội giá đơn hàng lên 10 lần.
    - Cài bẫy bắt **BUG-03**: Ép kiểu giá sản phẩm ID chẵn thành chuỗi String `"350000"` (`typeof price === 'number'`).
    - Cài bẫy bắt **BUG-04**: Lockout FR-02 tăng `+2` mỗi lần sai và khóa tới 3 phút.
-   - Bổ sung tài liệu [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md) mô tả chi tiết 7 lỗi kèm mẫu GitHub Issue.
+   - Bổ sung tài liệu [bug_reports.md](./bug_reports.md) mô tả chi tiết 7 lỗi kèm mẫu GitHub Issue.
 3. **Yêu cầu sửa 3 (Lập tài liệu đặc tả ca kiểm thử toàn diện)**:
-   - Tạo file [reports/test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/test_cases.md) xây dựng Traceability Matrix ánh xạ từ FR-01..FR-19 đến từng ca kiểm thử chức năng, điểm biên và kịch bản tải.
+   - Tạo file [test_cases.md](./test_cases.md) xây dựng Traceability Matrix ánh xạ từ FR-01..FR-19 đến từng ca kiểm thử chức năng, điểm biên và kịch bản tải.
 4. **Yêu cầu sửa 4 (Chuyển đổi Think-time sang phân phối ngẫu nhiên người thật)**:
    - Thay toàn bộ `sleep(1)` cố định bằng `sleep(Math.random() * 2 + 1)` ($1.0\text{s} - 3.0\text{s}$) để triệt tiêu hiện tượng dồn tải đồng bộ nhân tạo.
 5. **Yêu cầu sửa 5 (Đóng gói thư viện Offline & Xuất báo cáo HTML Dashboard)**:
@@ -99,7 +99,7 @@ Người dùng chỉ đạo soi mã nguồn chi tiết và yêu cầu thực hi�
 
 ### 2.4 Kết Quả Hoàn Thiện Sau Khi Sửa (Final Refined Deliverables)
 * Kịch bản k6 và JMeter được tinh chỉnh chuẩn xác 100%, pass `k6 inspect` với mã thoát 0.
-* Báo cáo [reports/Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Human_Review_Report.md) phân tích sâu sắc 6 nhóm lỗi AI theo 3 chiều kích: Prompt Quality, Model Limitations, Endpoint Characteristics.
+* Báo cáo [Human_Review_Report.md](./Human_Review_Report.md) phân tích sâu sắc 6 nhóm lỗi AI theo 3 chiều kích: Prompt Quality, Model Limitations, Endpoint Characteristics.
 * **Mã Git Commit:**
   - `32a3a3c refactor(scripts): align endpoints with SUT server.js and inject bug traps (BUG-01 to BUG-07)`
   - `0a46e59 docs(test-cases): add comprehensive test cases specification (reports/test_cases.md)`
@@ -185,7 +185,7 @@ Người dùng thực hiện phản biện sắc bén và đập tan 5 lỗi suy
      4. *Cài đặt In-memory / Redis Caching TTL 60s* cho danh mục sản phẩm giảm 80% tải đĩa.
 
 ### 4.4 Kết Quả Hoàn Thiện Sau Khi Sửa (Final Refined Deliverables)
-* Hoàn thành tài liệu [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md) chuẩn mực phản ánh sự am hiểu kỹ thuật sâu sắc của sinh viên.
+* Hoàn thành phân tích Task 2 được hợp nhất trọn vẹn tại Mục 6 của [report.md](./report.md#6-phân-tích-kết-quả-bắt-lỗi-suy-diễn-ai--4-giải-pháp-tối-ưu-kiến-trúc-task-2) chuẩn mực phản ánh sự am hiểu kỹ thuật sâu sắc của sinh viên.
 * **Mã Git Commit:**
   - `0ae6f6d docs(task2): critique AI result analysis and document hallucinations vs reality`
   - `0d5c564 docs(audit): update AI Audit Report with Task 2 review session`
@@ -256,15 +256,15 @@ Người dùng chỉ đạo hoàn thiện 4 điểm quan trọng:
 1. **Yêu cầu sửa 1 (Chuẩn hóa toàn diện README.md)**:
    - Yêu cầu vẽ lại toàn bộ cây thư mục ASCII hoàn chỉnh của cả repo `KTPM-HW05`, tích hợp bảng tổng hợp kết quả 4 bài test, bảng mô tả 7 lỗi SUT và hướng dẫn khởi chạy từng bước cho cả SUT, k6, PowerShell monitor và công cụ kiểm soát SLA gate.
 2. **Yêu cầu sửa 2 (Xây dựng bảng Rubric chấm điểm tối đa 100/100)**:
-   - Lập [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md) đối chiếu chi tiết từng tiểu mục của Mục 11 trong đề bài: Task 1 (40/40), Task 2 (30/30), Task 3 (20/20), AI Audit & Video (10/10) với các minh chứng kỹ thuật cụ thể.
+   - Tích hợp Bảng tự đánh giá Self-Assessment theo đúng mẫu Mục 15 đề bài trực tiếp vào [README.md (Mục 9)](./README.md#9-bảng-tự-đánh-giá-điểm-số-theo-mẫu-đề-bài-mục-15-assessment-template) đối chiếu chi tiết từng tiêu chí đạt điểm tối đa 100/100.
 3. **Yêu cầu sửa 3 (Kịch bản Video Demo chi tiết từng giây kèm lời thoại)**:
-   - Lập [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md) chia 6 phân đoạn theo chuẩn 3 - 5 phút (0:00 đến 5:00), quy định rõ hành động hiển thị trên màn hình và kịch bản lời thoại (voice-over) tiếng Việt truyền cảm, mạch lạc.
+   - Lập [Video_Demo_Script.md](./Video_Demo_Script.md) chia 6 phân đoạn theo chuẩn 3 - 5 phút (0:00 đến 5:00), quy định rõ hành động hiển thị trên màn hình và kịch bản lời thoại (voice-over) tiếng Việt truyền cảm, mạch lạc.
 4. **Yêu cầu sửa 4 (Hoàn tất đóng gói và kiểm toán minh bạch)**:
    - Đồng bộ hóa toàn bộ liên kết nội bộ (markdown file links) giữa các file báo cáo, kiểm tra trạng thái Git sạch sẽ và sẵn sàng nộp bài.
 
 ### 6.4 Kết Quả Hoàn Thiện Sau Khi Sửa (Final Refined Deliverables)
-* [README.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/README.md): Báo cáo tổng kết toàn diện của đồ án.
-* [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md): Bảng tự đánh giá 100/100 điểm.
-* [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md): Kịch bản quay video demo hoàn chỉnh.
+* [README.md](./README.md): Báo cáo tổng kết toàn diện của đồ án kèm Bảng tự đánh giá Self-Assessment 100/100.
+* [report.md](./report.md): Báo cáo chính toàn diện hợp nhất 10 mục theo quy chuẩn nộp bài.
+* [Video_Demo_Script.md](./Video_Demo_Script.md): Kịch bản quay video demo hoàn chỉnh 3 - 5 phút.
 
 
