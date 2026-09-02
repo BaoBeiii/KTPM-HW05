@@ -76,7 +76,12 @@ jobs:
           echo "Analyzing test metrics against SLA benchmarks..."
           node .agents/skills/performance-testing/scripts/extract_metrics.js results/load/metrics.json
 
-      - name: 8. Upload Performance Report Artifacts
+      - name: 8. Verify Zero-Omission & Report Integrity
+        run: |
+          echo "Auditing report integrity to prevent missing bug details or incomplete audit logs..."
+          node .agents/skills/performance-testing/scripts/verify_report_integrity.js
+
+      - name: 9. Upload Performance Report Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:

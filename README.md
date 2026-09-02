@@ -173,6 +173,12 @@ k6 run --out csv=results/endurance/raw_metrics.csv scripts/23127327_Endurance_20
 node scripts/extract_metrics.js results/load/metrics.json
 ```
 
+### 3.7 Kiểm Tra Tính Toàn Vẹn Báo Cáo (Zero-Omission Integrity Linter)
+```bash
+# Tự động quét đối chiếu 1:1, bảo đảm không có bất kỳ lỗi hay mục nào bị bỏ sót
+node scripts/verify_report_integrity.js
+```
+
 ---
 
 ## 4. BẢNG TỔNG HỢP KẾT QUẢ ĐO TẢI THỰC NGHIỆM (TASK 1)
