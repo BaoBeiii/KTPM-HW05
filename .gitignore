@@ -1,0 +1,10 @@
+# System Under Test (SUT) repository - External codebase
+eshop-sut/
+
+# Node dependencies
+node_modules/
+
+# Logs and temporary files
+*.log
+.DS_Store
+Thumbs.db
