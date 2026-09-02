@@ -1,0 +1,54 @@
+{
+  "system": "EShop SUT",
+  "version": "1.0.0",
+  "sla_thresholds": {
+    "01_Login": {
+      "endpoint": "POST /api/login",
+      "p95_ms": 1500,
+      "max_error_rate": 0.05,
+      "description": "User authentication with JWT issuance"
+    },
+    "02_BrowseProducts": {
+      "endpoint": "GET /api/products",
+      "p95_ms": 800,
+      "max_error_rate": 0.01,
+      "description": "Catalog browsing and product listing"
+    },
+    "03_ProductDetail": {
+      "endpoint": "GET /api/products/:id",
+      "p95_ms": 800,
+      "max_error_rate": 0.01,
+      "description": "Individual product detail retrieval"
+    },
+    "04_ApplyCoupon": {
+      "endpoint": "POST /api/apply-coupon",
+      "p95_ms": 1000,
+      "max_error_rate": 0.10,
+      "description": "Coupon validation and discount calculation"
+    },
+    "05_Checkout": {
+      "endpoint": "POST /api/checkout",
+      "p95_ms": 1500,
+      "max_error_rate": 0.05,
+      "description": "Order creation and transactional write"
+    },
+    "06_CouponUsage": {
+      "endpoint": "POST /api/coupon-usage",
+      "p95_ms": 1000,
+      "max_error_rate": 0.05,
+      "description": "Coupon usage persistence"
+    },
+    "07_MyOrders": {
+      "endpoint": "GET /api/orders/my-orders",
+      "p95_ms": 1000,
+      "max_error_rate": 0.05,
+      "description": "Customer order history query"
+    },
+    "overall": {
+      "p95_ms": 1500,
+      "max_error_rate": 0.15,
+      "description": "System-wide transaction duration"
+    }
+  },
+  "regression_tolerance_ratio": 1.20
+}
