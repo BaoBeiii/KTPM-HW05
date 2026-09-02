@@ -1,0 +1,54 @@
+================================================================================
+EVIDENCE: LOAD TESTING EXECUTION METRICS (Peak Traffic: 50 VUs - 8 Minutes)
+Student ID: 23127327
+Hostname: DESKTOP-BEIZU
+Date & Time: 2026-09-02 14:58:29
+Target SUT: Node.js Express (PID: 13212) on http://localhost:3000
+Database: SQLite3 (database.sqlite)
+================================================================================
+
+1. K6 EXECUTION SUMMARY
+--------------------------------------------------------------------------------
+- Test Duration: 8m13.6s
+- Total Completed Iterations: 1,420
+- Total HTTP Requests: 5,235 (Throughput: ~10.61 req/s)
+- Total Data Transferred: 3.1 MB Received / 869 kB Sent
+
+2. LATENCY PERCENTILES (SLA COMPLIANCE)
+--------------------------------------------------------------------------------
+Endpoint                         Target SLA (p95)    Observed p95    Status
+--------------------------------------------------------------------------------
+01_Login (POST /api/login)       < 1500 ms           1.84 ms         PASS (Well within SLA)
+02_BrowseProducts (GET /api/...) < 800 ms            1.47 ms         PASS (Well within SLA)
+03_ProductDetail (GET /api/...)  < 800 ms            1.41 ms         PASS (Well within SLA)
+04_ApplyCoupon (POST /api/...)   < 1000 ms           1.79 ms         PASS (Well within SLA)
+05_Checkout (POST /api/checkout) < 1500 ms           6.95 ms         PASS (Well within SLA)
+06_CouponUsage (POST /api/...)   < 1000 ms           6.29 ms         PASS (Well within SLA)
+07_MyOrders (GET /api/orders)    < 1000 ms           1.69 ms         PASS (Well within SLA)
+Overall http_req_duration (p95): 1.74 ms (Average: 1.16 ms)
+
+3. SUT INJECTED BUG DETECTION RESULTS
+--------------------------------------------------------------------------------
+- BUG #3 (String price on even product IDs):
+  Total Failures Caught: 1,084 occurrences (Passed: 245, Failed: 1084)
+  Check: 'Product price is number' failed whenever ID was 2, 4, 6, 8, 10.
+- BUG #1 (Negative percent discount logic):
+  Total Failures Caught: 6 occurrences when SAVE10 percent calculation produced negative discount.
+- Account Lockout Probing:
+  Probed without unhandled 403 crashes.
+
+4. HOST RESOURCE UTILIZATION (PID 13212)
+--------------------------------------------------------------------------------
+- Baseline Memory: 59.73 MB Working Set
+- Peak Memory under 50 VUs: 71.20 MB Working Set
+- Private Memory: 74.65 MB
+- Memory Drift: +11.47 MB (Stable heap, Garbage Collection healthy)
+- CPU Utilization: Low (~4-8% on multi-core CPU)
+
+5. ARTIFACTS GENERATED
+--------------------------------------------------------------------------------
+- HTML Interactive Dashboard: results/load/summary.html
+- Structured JSON Metrics:    results/load/metrics.json
+- Raw CSV Samples:            results/load/raw_metrics.csv
+- JMeter-compatible Log:      results/load/raw_load.jtl
+================================================================================

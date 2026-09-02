@@ -1,0 +1,427 @@
+{
+  "root_group": {
+    "groups": [],
+    "checks": [
+        {
+          "name": "Login status is 200",
+          "path": "::Login status is 200",
+          "id": "70021549349f8761b6464cc8cec1e171",
+          "passes": 34,
+          "fails": 1386
+        },
+        {
+          "passes": 34,
+          "fails": 1386,
+          "name": "Login returns token",
+          "path": "::Login returns token",
+          "id": "db87de1292c187fb1e88bf35d7ec407a"
+        },
+        {
+          "fails": 0,
+          "name": "Login account not locked (not 403)",
+          "path": "::Login account not locked (not 403)",
+          "id": "d5d8ffd1a0a73960e08a806c57129f70",
+          "passes": 1420
+        },
+        {
+          "id": "0700e76151ba3720224a601e54f0be64",
+          "passes": 1420,
+          "fails": 0,
+          "name": "Product list status is 200",
+          "path": "::Product list status is 200"
+        },
+        {
+          "path": "::Product list is array",
+          "id": "3283ba2a896382339fe4148ce10a0da1",
+          "passes": 1420,
+          "fails": 0,
+          "name": "Product list is array"
+        },
+        {
+          "name": "Product detail status is 200",
+          "path": "::Product detail status is 200",
+          "id": "79c08f04319d4bc4e5d96a1def22faf9",
+          "passes": 1329,
+          "fails": 0
+        },
+        {
+          "path": "::Product price is number (Detect BUG #3: string on even IDs)",
+          "id": "196923c9eda30c286dc7df02deb4333c",
+          "passes": 245,
+          "fails": 1084,
+          "name": "Product price is number (Detect BUG #3: string on even IDs)"
+        },
+        {
+          "name": "Coupon endpoint responds",
+          "path": "::Coupon endpoint responds",
+          "id": "5c2696093cfe87b49e0dd678a54e9c32",
+          "passes": 994,
+          "fails": 0
+        },
+        {
+          "name": "Coupon discount valid (Detect BUG #1: negative percent discount)",
+          "path": "::Coupon discount valid (Detect BUG #1: negative percent discount)",
+          "id": "d71419740c6241ddd20b0d84e9b390fe",
+          "passes": 988,
+          "fails": 6
+        },
+        {
+          "fails": 0,
+          "name": "Checkout status is 200",
+          "path": "::Checkout status is 200",
+          "id": "585cb78a6c411441beb7b109e38571f4",
+          "passes": 34
+        },
+        {
+          "name": "Checkout returns orderId",
+          "path": "::Checkout returns orderId",
+          "id": "647f6612aa12c7e2207fe4477bd872f3",
+          "passes": 34,
+          "fails": 0
+        },
+        {
+          "name": "My orders status is 200",
+          "path": "::My orders status is 200",
+          "id": "bf54ebd544ebd0b4c98a23753a478c83",
+          "passes": 34,
+          "fails": 0
+        },
+        {
+          "name": "My orders is array",
+          "path": "::My orders is array",
+          "id": "ea52bf576709a9fd0b50cc8bd6910f99",
+          "passes": 34,
+          "fails": 0
+        },
+        {
+          "path": "::Coupon usage recorded",
+          "id": "98f1464592a37b7f2f39ec1c8e025373",
+          "passes": 4,
+          "fails": 0,
+          "name": "Coupon usage recorded"
+        }
+      ],
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "options": {
+    "noColor": false,
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": ""
+  },
+  "state": {
+    "isStdOutTTY": false,
+    "isStdErrTTY": false,
+    "testRunDurationMs": 493585.3112
+  },
+  "metrics": {
+    "http_req_duration{name:05_Checkout}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 3.5215,
+        "med": 4.67175,
+        "max": 8.4247,
+        "p(90)": 6.2076899999999995,
+        "p(95)": 6.951244999999998,
+        "avg": 5.048441176470588
+      },
+      "thresholds": {
+        "p(95)<1500": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_sending": {
+      "contains": "time",
+      "values": {
+        "p(95)": 0,
+        "avg": 0.019817478510028647,
+        "min": 0,
+        "med": 0,
+        "max": 1.1665,
+        "p(90)": 0
+      },
+      "type": "trend"
+    },
+    "http_req_blocked": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 0.50592,
+        "p(95)": 0.5679200000000001,
+        "avg": 0.10973197707736394,
+        "min": 0,
+        "med": 0,
+        "max": 10.3589
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 0,
+        "max": 0,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 5235,
+        "rate": 10.606069267484312
+      }
+    },
+    "http_req_receiving": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 0.7791400000000002,
+        "p(95)": 0.8617600000000001,
+        "avg": 0.3436380515759318,
+        "min": 0,
+        "med": 0.3782,
+        "max": 1.5047
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 1.5918949999999998,
+        "avg": 1.0829197728790918,
+        "min": 0,
+        "med": 1.06025,
+        "max": 8.4247,
+        "p(90)": 1.4374400000000007
+      }
+    },
+    "iterations": {
+      "contains": "default",
+      "values": {
+        "count": 1420,
+        "rate": 2.87690895125649
+      },
+      "type": "counter"
+    },
+    "http_req_duration{name:07_MyOrders}": {
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 1.7416,
+        "p(90)": 1.63035,
+        "p(95)": 1.6926049999999997,
+        "avg": 1.2487411764705882,
+        "min": 0.5023,
+        "med": 1.34755
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 3131615,
+        "rate": 6344.627623513445
+      }
+    },
+    "data_sent": {
+      "contains": "data",
+      "values": {
+        "count": 868925,
+        "rate": 1760.4352890637642
+      },
+      "type": "counter"
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 7.7977,
+        "p(90)": 1.2769599999999999,
+        "p(95)": 1.51383,
+        "avg": 0.8026557402101273,
+        "min": 0,
+        "med": 0.7033
+      }
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 16449.517415,
+        "avg": 14008.98899274647,
+        "min": 9354.7409,
+        "med": 14028.770700000001,
+        "max": 18540.5694,
+        "p(90)": 15946.64774
+      }
+    },
+    "http_req_duration{name:02_BrowseProducts}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 1.05985,
+        "max": 3.4095,
+        "p(90)": 1.35915,
+        "p(95)": 1.47893,
+        "avg": 1.0209745070422551
+      },
+      "thresholds": {
+        "p(95)<800": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{name:06_CouponUsage}": {
+      "contains": "time",
+      "values": {
+        "p(90)": 6.2835600000000005,
+        "p(95)": 6.29133,
+        "avg": 5.50975,
+        "min": 3.3429,
+        "med": 6.1985,
+        "max": 6.2991
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "checks": {
+      "values": {
+        "rate": 0.6750799259633182,
+        "passes": 8024,
+        "fails": 3862
+      },
+      "type": "rate",
+      "contains": "default"
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "min": 50,
+        "max": 50,
+        "value": 50
+      }
+    },
+    "http_req_duration{name:03_ProductDetail}": {
+      "values": {
+        "avg": 0.9820767494356658,
+        "min": 0,
+        "med": 1.038,
+        "max": 5.0262,
+        "p(90)": 1.30234,
+        "p(95)": 1.4105999999999999
+      },
+      "thresholds": {
+        "p(95)<800": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_duration{name:04_ApplyCoupon}": {
+      "values": {
+        "min": 0,
+        "med": 1.3400500000000002,
+        "max": 4.7935,
+        "p(90)": 1.69766,
+        "p(95)": 1.7917349999999996,
+        "avg": 1.2957610663983894
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 1.1351,
+        "max": 8.4247,
+        "p(90)": 1.58,
+        "p(95)": 1.74146,
+        "avg": 1.166111270296081
+      }
+    },
+    "http_req_duration{name:01_Login}": {
+      "contains": "time",
+      "values": {
+        "avg": 1.2855626760563363,
+        "min": 0.5022,
+        "med": 1.3103500000000001,
+        "max": 5.8315,
+        "p(90)": 1.7047500000000002,
+        "p(95)": 1.8455099999999998
+      },
+      "thresholds": {
+        "p(95)<1500": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0.09939723018147092,
+        "min": 0,
+        "med": 0,
+        "max": 3.3942,
+        "p(90)": 0.5044,
+        "p(95)": 0.52256
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 1,
+        "min": 1,
+        "max": 50
+      }
+    },
+    "http_req_failed": {
+      "values": {
+        "rate": 0.428080229226361,
+        "passes": 2241,
+        "fails": 2994
+      },
+      "thresholds": {
+        "rate<0.05": {
+          "ok": false
+        }
+      },
+      "type": "rate",
+      "contains": "default"
+    }
+  }
+}
