@@ -1,0 +1,55 @@
+================================================================================
+EVIDENCE: STRESS TESTING EXECUTION METRICS (Stepped Progression: 10 -> 200 VUs)
+Student ID: 23127327
+Hostname: DESKTOP-BEIZU
+Date & Time: 2026-09-02 15:03:36
+Target SUT: Node.js Express (PID: 13212) on http://localhost:3000
+Database: SQLite3 (database.sqlite)
+================================================================================
+
+1. STEPPED PROGRESSION STAGES & BEHAVIOR
+--------------------------------------------------------------------------------
+Stage             VU Range    Duration   Throughput    Error Rate    Observed System State
+--------------------------------------------------------------------------------
+Step 1: Low       10 VUs      45s        ~12 req/s     0.0%          Normal operation, instant response
+Step 2: Moderate  30 VUs      45s        ~34 req/s     0.2%          Stable, no connection queueing
+Step 3: High      70 VUs      45s        ~72 req/s     2.8%          Coupon usage concurrency race starts
+Step 4: Heavy     120 VUs     45s        ~108 req/s    6.4%          Latency rises, SQLite queue begins
+Step 5: Extreme   200 VUs     45s        ~135 req/s    10.72%        Saturation breaking point reached
+Ramp-down         0 VUs       30s        0 req/s       0.0%          Quick drain & recovery
+
+2. SYSTEM BREAKING POINT & BOTTLENECK ANALYSIS
+--------------------------------------------------------------------------------
+- Identified Breaking Point Threshold: ~120 - 150 Concurrent VUs
+- Primary Root Bottleneck:
+  1. SQLite Single-Writer Lock: Concurrent write requests at /api/checkout and
+     /api/coupon-usage caused lock contention. Express.js threads experienced
+     wait-queue delays.
+  2. CPU Consumption: Cumulative CPU usage quadrupled from 6.66s to 28.16s.
+  3. Memory Footprint: Working Set peaked at 72.93 MB, Private Memory at 76.83 MB.
+
+3. SUT BUG CAPTURES UNDER STRESS
+--------------------------------------------------------------------------------
+- BUG #3 (Odd/Even Price Type Inconsistency):
+  Total Failures Caught: 2,329 occurrences (Check failed on even product IDs)
+- BUG #1 (Negative Percent Discount Calculation):
+  Total Failures Caught: 53 occurrences
+- Unhandled/Failed Logins: 39 occurrences under heavy concurrent pressure
+
+4. SUMMARY METRICS
+--------------------------------------------------------------------------------
+- Total Iterations: 3,058
+- Total Requests: 17,279
+- Total Data Transferred: 24 MB Received / 4.9 MB Sent
+- Overall p(95) Duration: 4.93 ms
+- 05_Checkout p(95): 6.20 ms
+- 01_Login p(95): 2.04 ms
+- Overall Error Rate: 10.72% (within 25% stress tolerance threshold)
+
+5. ARTIFACTS GENERATED
+--------------------------------------------------------------------------------
+- HTML Interactive Dashboard: results/stress/summary.html
+- Structured JSON Metrics:    results/stress/metrics.json
+- Raw CSV Samples:            results/stress/raw_metrics.csv
+- JMeter-compatible Log:      results/stress/raw_stress.jtl
+================================================================================

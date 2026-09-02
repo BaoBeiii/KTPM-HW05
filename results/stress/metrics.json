@@ -1,0 +1,314 @@
+{
+  "metrics": {
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.005147566410093172,
+        "min": 0,
+        "med": 0,
+        "max": 1.8853
+      }
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 1.4482142311476327,
+        "min": 0,
+        "med": 0.7199,
+        "max": 10.6345,
+        "p(90)": 4.0215,
+        "p(95)": 4.637559999999998
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "contains": "time",
+      "values": {
+        "avg": 1.746155879683649,
+        "min": 0,
+        "med": 1.11645,
+        "max": 10.9073,
+        "p(90)": 4.3556,
+        "p(95)": 5.0189
+      },
+      "type": "trend"
+    },
+    "http_req_blocked": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 8.3683,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.005985832513455638,
+        "min": 0,
+        "med": 0
+      }
+    },
+    "http_req_sending": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 0,
+        "avg": 0.002015186064008334,
+        "min": 0,
+        "med": 0,
+        "max": 1.4486,
+        "p(90)": 0
+      }
+    },
+    "vus_max": {
+      "values": {
+        "value": 200,
+        "min": 200,
+        "max": 200
+      },
+      "type": "gauge",
+      "contains": "default"
+    },
+    "http_req_duration": {
+      "contains": "time",
+      "values": {
+        "p(90)": 4.289200000000001,
+        "p(95)": 4.9364099999999995,
+        "avg": 1.7046954164014156,
+        "min": 0,
+        "med": 1.1155,
+        "max": 10.9073
+      },
+      "type": "trend"
+    },
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 4922738,
+        "rate": 18970.921883123436
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 23783939,
+        "rate": 91656.96993054941
+      }
+    },
+    "iterations": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 3058,
+        "rate": 11.784718000143716
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "min": 1,
+        "max": 200,
+        "value": 1
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 0,
+        "max": 0,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0,
+        "min": 0
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 17279,
+        "rate": 66.58866655476889
+      }
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 6003.4913,
+        "med": 6011.5409500000005,
+        "max": 6030.5339,
+        "p(90)": 6015.79824,
+        "p(95)": 6017.75277,
+        "avg": 6012.093093459763
+      }
+    },
+    "checks": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0.804705043664231,
+        "passes": 22576,
+        "fails": 5479
+      }
+    },
+    "http_req_duration{name:01_Login}": {
+      "values": {
+        "p(90)": 1.72011,
+        "p(95)": 2.04583,
+        "avg": 1.2509864290385855,
+        "min": 0,
+        "med": 1.2096,
+        "max": 8.4753
+      },
+      "thresholds": {
+        "p(95)<3000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_receiving": {
+      "contains": "time",
+      "values": {
+        "p(90)": 0.76512,
+        "p(95)": 0.8948599999999992,
+        "avg": 0.2544659991897665,
+        "min": 0,
+        "med": 0,
+        "max": 1.7208
+      },
+      "type": "trend"
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0.10724000231494878,
+        "passes": 1853,
+        "fails": 15426
+      },
+      "thresholds": {
+        "rate<0.25": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{name:05_Checkout}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 5.707260000000001,
+        "p(95)": 6.20878,
+        "avg": 4.4645012255713725,
+        "min": 2.3007,
+        "med": 4.2516,
+        "max": 10.9073
+      },
+      "thresholds": {
+        "p(95)<4000": {
+          "ok": true
+        }
+      }
+    }
+  },
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": [],
+    "checks": [
+        {
+          "name": "Login success (200)",
+          "path": "::Login success (200)",
+          "id": "44b51e70038dab783b2fd1f2d00a21b8",
+          "passes": 3019,
+          "fails": 39
+        },
+        {
+          "name": "Account Locked detected (403 - FR-02 Lockout Triggered)",
+          "path": "::Account Locked detected (403 - FR-02 Lockout Triggered)",
+          "id": "42733853a98725163e2a103b206a0470",
+          "passes": 0,
+          "fails": 3058
+        },
+        {
+          "fails": 0,
+          "name": "Browse status 200",
+          "path": "::Browse status 200",
+          "id": "12e741e2e71920a751ed83507ad9fd3d",
+          "passes": 3058
+        },
+        {
+          "id": "de55ce05c86055d6015d4193bee93a86",
+          "passes": 2885,
+          "fails": 0,
+          "name": "Product detail status 200",
+          "path": "::Product detail status 200"
+        },
+        {
+          "passes": 556,
+          "fails": 2329,
+          "name": "Price type check (Detect BUG #3 string on even IDs)",
+          "path": "::Price type check (Detect BUG #3 string on even IDs)",
+          "id": "5be625c216dbf977a6661e611af21d64"
+        },
+        {
+          "fails": 0,
+          "name": "Coupon response valid",
+          "path": "::Coupon response valid",
+          "id": "2bab5bac6bc992db8b18f5d468aa0615",
+          "passes": 2027
+        },
+        {
+          "passes": 1974,
+          "fails": 53,
+          "name": "Coupon discount valid (Detect BUG #1: negative discount on percent)",
+          "path": "::Coupon discount valid (Detect BUG #1: negative discount on percent)",
+          "id": "dda678b11c74ebfb7b2d12cc2fd3b42a"
+        },
+        {
+          "fails": 0,
+          "name": "Checkout success (200)",
+          "path": "::Checkout success (200)",
+          "id": "6e716d4c0db7779c90a197528b95c898",
+          "passes": 3019
+        },
+        {
+          "path": "::Detect SQLite DB lock / 500 error under high concurrency",
+          "id": "3ac41c913bf3097290c4d8a02c6643b9",
+          "passes": 3019,
+          "fails": 0,
+          "name": "Detect SQLite DB lock / 500 error under high concurrency"
+        },
+        {
+          "name": "My orders status 200",
+          "path": "::My orders status 200",
+          "id": "9798cd3cbcec1fe5428c6402acce9069",
+          "passes": 3019,
+          "fails": 0
+        }
+      ]
+  },
+  "options": {
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": "",
+    "noColor": false
+  },
+  "state": {
+    "isStdOutTTY": false,
+    "isStdErrTTY": false,
+    "testRunDurationMs": 259488.6021
+  }
+}
