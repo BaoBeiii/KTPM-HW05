@@ -17,7 +17,13 @@ console.log('='.repeat(75));
 let hasErrors = false;
 
 // 1. Audit bug_reports.md
-const bugReportPath = path.resolve(__dirname, '../reports/bug_reports.md');
+const possibleBugPaths = [
+    path.resolve(__dirname, '../reports/bug_reports.md'),
+    path.resolve(__dirname, '../../../../reports/bug_reports.md'),
+    path.resolve(process.cwd(), 'reports/bug_reports.md')
+];
+const bugReportPath = possibleBugPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'reports/bug_reports.md');
+
 if (fs.existsSync(bugReportPath)) {
     console.log(`\n[CHECK 1] Auditing Bug Reports: ${bugReportPath}`);
     const content = fs.readFileSync(bugReportPath, 'utf-8');
@@ -45,7 +51,13 @@ if (fs.existsSync(bugReportPath)) {
 }
 
 // 2. Audit AI_Audit_Report.md
-const auditReportPath = path.resolve(__dirname, '../reports/AI_Audit_Report.md');
+const possibleAuditPaths = [
+    path.resolve(__dirname, '../reports/AI_Audit_Report.md'),
+    path.resolve(__dirname, '../../../../reports/AI_Audit_Report.md'),
+    path.resolve(process.cwd(), 'reports/AI_Audit_Report.md')
+];
+const auditReportPath = possibleAuditPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'reports/AI_Audit_Report.md');
+
 if (fs.existsSync(auditReportPath)) {
     console.log(`\n[CHECK 2] Auditing AI Audit Report: ${auditReportPath}`);
     const content = fs.readFileSync(auditReportPath, 'utf-8');

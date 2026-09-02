@@ -10,7 +10,13 @@ const fs = require('fs');
 const path = require('path');
 
 const metricsPath = process.argv[2] || path.resolve(__dirname, '../results/load/metrics.json');
-const slaPath = path.resolve(__dirname, '../.agents/skills/performance-testing/references/sla_matrix.json');
+const possibleSlaPaths = [
+    path.resolve(__dirname, '../references/sla_matrix.json'),
+    path.resolve(__dirname, '../.agents/skills/performance-testing/references/sla_matrix.json'),
+    path.resolve(__dirname, '../../../../.agents/skills/performance-testing/references/sla_matrix.json'),
+    path.resolve(process.cwd(), '.agents/skills/performance-testing/references/sla_matrix.json')
+];
+const slaPath = possibleSlaPaths.find(p => fs.existsSync(p)) || possibleSlaPaths[0];
 
 console.log('='.repeat(75));
 console.log('  PERFORMANCE REGRESSION & SLA QUALITY GATE AUDITOR');
