@@ -15,7 +15,8 @@
 | **Phiên 2** | Human Review: Phê bình Kịch bản & Cài Bẫy Bug | Gemini 3.7 Flash | **5 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 2) |
 | **Phiên 3** | Thực thi Đo tải Thực tế & Thu thập Telemetry | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 3) |
 | **Phiên 4** | Task 2: Phản biện Lỗi AI & Đề xuất Tối ưu Kiến trúc | Gemini 3.7 Flash | **5 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 4) |
-| **Phiên 5** | Task 3: Tự Động Hóa CI/CD & Đóng Gói Agent Skill | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ⏳ Đang nghiệm thu (Checkpoint 5) |
+| **Phiên 5** | Task 3: Tự Động Hóa CI/CD & Đóng Gói Agent Skill | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 5) |
+| **Phiên 6** | Tổng Kết Dự Án, README, Bảng Điểm & Kịch Bản Video | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ⏳ Đang nghiệm thu (Checkpoint 6) |
 
 ---
 
@@ -229,4 +230,41 @@ Người dùng chỉ đạo hoàn thiện 4 điểm cốt lõi:
 * **Mã Git Commit:**
   - `dac984d feat(ci): configure GitHub Actions workflow for performance regression detection`
   - `35af26d feat(skill): package performance-testing agent skill with metric extraction scripts`
+
+---
+
+## 6. PHIÊN LÀM VIỆC 6: TỔNG KẾT ĐỒ ÁN, BẢNG TỰ ĐÁNH GIÁ & KỊCH BẢN VIDEO (WRAP-UP)
+
+* **Thời gian (Date & Time):** `2026-09-02T15:40:00+07:00`
+* **Công cụ sử dụng (Tool used):** Google Antigravity / Gemini 3.7 Flash (High)
+
+### 6.1 Yêu Cầu Của Người Dùng (User Prompt)
+```text
+Thực hiện Giai đoạn 6: Hoàn thiện tài liệu tổng kết README.md toàn diện có đầy đủ cây thư mục, 
+hướng dẫn cài đặt, tóm tắt kết quả đo đạc; lập bảng tự chấm điểm Self_Assessment_Rubric.md đối chiếu 
+từng tiêu chí 100/100 của đề bài; và lập kịch bản quay Video Demo chi tiết Video_Demo_Script.md 
+hướng dẫn sinh viên thuyết minh từ 3 đến 5 phút.
+```
+
+### 6.2 Kết Quả Ban Đầu Của AI (AI Initial Output)
+* AI tạo file README tóm tắt ngắn gọn thiếu cây thư mục chi tiết và thiếu hướng dẫn chạy script giám sát tài nguyên.
+* Bảng Rubric ban đầu của AI không phân bổ tỷ trọng điểm số cụ thể theo Mục 11 của đề bài.
+* Kịch bản video ban đầu của AI chỉ là các gạch đầu dòng chung chung, không có phân bổ thời lượng từng giây và lời thoại (voice-over) chi tiết.
+
+### 6.3 Các Điểm Người Dùng Phát Hiện & Yêu Cầu Sửa Đổi (User Corrections & Modifications)
+Người dùng chỉ đạo hoàn thiện 4 điểm quan trọng:
+1. **Yêu cầu sửa 1 (Chuẩn hóa toàn diện README.md)**:
+   - Yêu cầu vẽ lại toàn bộ cây thư mục ASCII hoàn chỉnh của cả repo `KTPM-HW05`, tích hợp bảng tổng hợp kết quả 4 bài test, bảng mô tả 7 lỗi SUT và hướng dẫn khởi chạy từng bước cho cả SUT, k6, PowerShell monitor và công cụ kiểm soát SLA gate.
+2. **Yêu cầu sửa 2 (Xây dựng bảng Rubric chấm điểm tối đa 100/100)**:
+   - Lập [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md) đối chiếu chi tiết từng tiểu mục của Mục 11 trong đề bài: Task 1 (40/40), Task 2 (30/30), Task 3 (20/20), AI Audit & Video (10/10) với các minh chứng kỹ thuật cụ thể.
+3. **Yêu cầu sửa 3 (Kịch bản Video Demo chi tiết từng giây kèm lời thoại)**:
+   - Lập [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md) chia 6 phân đoạn theo chuẩn 3 - 5 phút (0:00 đến 5:00), quy định rõ hành động hiển thị trên màn hình và kịch bản lời thoại (voice-over) tiếng Việt truyền cảm, mạch lạc.
+4. **Yêu cầu sửa 4 (Hoàn tất đóng gói và kiểm toán minh bạch)**:
+   - Đồng bộ hóa toàn bộ liên kết nội bộ (markdown file links) giữa các file báo cáo, kiểm tra trạng thái Git sạch sẽ và sẵn sàng nộp bài.
+
+### 6.4 Kết Quả Hoàn Thiện Sau Khi Sửa (Final Refined Deliverables)
+* [README.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/README.md): Báo cáo tổng kết toàn diện của đồ án.
+* [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md): Bảng tự đánh giá 100/100 điểm.
+* [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md): Kịch bản quay video demo hoàn chỉnh.
+
 
