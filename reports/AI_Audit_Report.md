@@ -15,6 +15,7 @@
 | **Phiên 2** | Human Review: Phê bình Kịch bản & Cài Bẫy Bug | Gemini 3.7 Flash | **5 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 2) |
 | **Phiên 3** | Thực thi Đo tải Thực tế & Thu thập Telemetry | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 3) |
 | **Phiên 4** | Task 2: Phản biện Lỗi AI & Đề xuất Tối ưu Kiến trúc | Gemini 3.7 Flash | **5 điểm sửa đổi cốt lõi** | ✅ Đã duyệt (Checkpoint 4) |
+| **Phiên 5** | Task 3: Tự Động Hóa CI/CD & Đóng Gói Agent Skill | Gemini 3.7 Flash | **4 điểm sửa đổi cốt lõi** | ⏳ Đang nghiệm thu (Checkpoint 5) |
 
 ---
 
@@ -187,3 +188,45 @@ Người dùng thực hiện phản biện sắc bén và đập tan 5 lỗi suy
 * **Mã Git Commit:**
   - `0ae6f6d docs(task2): critique AI result analysis and document hallucinations vs reality`
   - `0d5c564 docs(audit): update AI Audit Report with Task 2 review session`
+
+---
+
+## 5. PHIÊN LÀM VIỆC 5: TỰ ĐỘNG HÓA CI/CD & ĐÓNG GÓI AGENT SKILL (TASK 3)
+
+* **Thời gian (Date & Time):** `2026-09-02T15:36:00+07:00`
+* **Công cụ sử dụng (Tool used):** Google Antigravity / Gemini 3.7 Flash (High)
+
+### 5.1 Yêu Cầu Của Người Dùng (User Prompt)
+```text
+Thực hiện Task 3: Thiết lập tự động hóa CI/CD với GitHub Actions để phát hiện hồi quy hiệu năng (Performance Regression) 
+và đóng gói Agent Skill tái sử dụng theo chuẩn Antigravity (.agents/skills/performance-testing/) có script trích xuất 
+chỉ số p95, so sánh ma trận SLA và tự động chặn PR nếu độ trễ thoái hóa vượt ngưỡng.
+```
+
+### 5.2 Kết Quả Ban Đầu Của AI (AI Initial Output)
+* AI tạo file workflow cơ bản chạy k6 không có bước khởi động và chờ kiểm tra sức khỏe của backend SUT.
+* AI không định nghĩa ma trận SLA riêng mà viết cứng các số 1000ms trong code.
+* AI chưa đóng gói cấu trúc skill Antigravity đầy đủ (thiếu metadata YAML, thiếu file ví dụ comment PR).
+
+### 5.3 Các Điểm Người Dùng Phát Hiện & Yêu Cầu Sửa Đổi (User Corrections & Modifications)
+Người dùng chỉ đạo hoàn thiện 4 điểm cốt lõi:
+1. **Yêu cầu sửa 1 (Đảm bảo vòng đời SUT trên CI/CD)**:
+   - Trong `.github/workflows/performance-regression.yml`, bổ sung bước clone `eshop-sut`, chạy nền `node server.js &`, và có vòng lặp thăm dò sức khỏe (`curl --retry` kiểm tra `http://localhost:3000/api/products`) trước khi k6 được phép bắn tải.
+2. **Yêu cầu sửa 2 (Tách riêng ma trận SLA chuẩn)**:
+   - Tạo file độc lập `.agents/skills/performance-testing/references/sla_matrix.json` định nghĩa rõ ràng ngưỡng $p95$ và tỷ lệ lỗi cho từng endpoint (`01_Login`, `02_BrowseProducts`, `05_Checkout`,...) cùng tỷ lệ thoái hóa cho phép (Tolerance ratio: 1.20).
+3. **Yêu cầu sửa 3 (Xây dựng công cụ CLI Gatekeeper đa năng)**:
+   - Hoàn thiện `scripts/extract_metrics.js` và bản đóng gói trong skill để parse `metrics.json`, tự động tính toán, in bảng Markdown chuyên nghiệp cho GitHub Step Summary và trả về Exit code 1 nếu vi phạm SLA nhằm tự động đánh rớt build (Fail pipeline).
+4. **Yêu cầu sửa 4 (Đóng gói trọn bộ Agent Skill tái sử dụng chuẩn Antigravity)**:
+   - Xây dựng đầy đủ 4 thành phần trong `.agents/skills/performance-testing/`:
+     - `SKILL.md`: Metadata YAML `name: performance-testing` cùng hướng dẫn chi tiết cho Agent.
+     - `scripts/extract_metrics.js`: CLI tool phân tích độ trễ phân vị đuôi.
+     - `references/sla_matrix.json`: Benchmark ngưỡng hiệu năng.
+     - `examples/sample_pr_comment.md`: Mẫu báo cáo tự động comment vào Pull Request.
+
+### 5.4 Kết Quả Hoàn Thiện Sau Khi Sửa (Final Refined Deliverables)
+* Workflow `.github/workflows/performance-regression.yml` sẵn sàng hoạt động trên GitHub Actions.
+* Trọn bộ Agent Skill `.agents/skills/performance-testing/` được kiểm thử cục bộ thành công với kết quả `GATE APPROVED`.
+* **Mã Git Commit:**
+  - `dac984d feat(ci): configure GitHub Actions workflow for performance regression detection`
+  - `35af26d feat(skill): package performance-testing agent skill with metric extraction scripts`
+
