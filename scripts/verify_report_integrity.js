@@ -18,11 +18,14 @@ let hasErrors = false;
 
 // 1. Audit bug_reports.md
 const possibleBugPaths = [
+    path.resolve(process.cwd(), 'bug_reports.md'),
+    path.resolve(__dirname, '../bug_reports.md'),
+    path.resolve(__dirname, '../../../../bug_reports.md'),
+    path.resolve(process.cwd(), 'reports/bug_reports.md'),
     path.resolve(__dirname, '../reports/bug_reports.md'),
-    path.resolve(__dirname, '../../../../reports/bug_reports.md'),
-    path.resolve(process.cwd(), 'reports/bug_reports.md')
+    path.resolve(__dirname, '../../../../reports/bug_reports.md')
 ];
-const bugReportPath = possibleBugPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'reports/bug_reports.md');
+const bugReportPath = possibleBugPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'bug_reports.md');
 
 if (fs.existsSync(bugReportPath)) {
     console.log(`\n[CHECK 1] Auditing Bug Reports: ${bugReportPath}`);
@@ -52,11 +55,14 @@ if (fs.existsSync(bugReportPath)) {
 
 // 2. Audit AI_Audit_Report.md
 const possibleAuditPaths = [
+    path.resolve(process.cwd(), 'AI_Audit_Report.md'),
+    path.resolve(__dirname, '../AI_Audit_Report.md'),
+    path.resolve(__dirname, '../../../../AI_Audit_Report.md'),
+    path.resolve(process.cwd(), 'reports/AI_Audit_Report.md'),
     path.resolve(__dirname, '../reports/AI_Audit_Report.md'),
-    path.resolve(__dirname, '../../../../reports/AI_Audit_Report.md'),
-    path.resolve(process.cwd(), 'reports/AI_Audit_Report.md')
+    path.resolve(__dirname, '../../../../reports/AI_Audit_Report.md')
 ];
-const auditReportPath = possibleAuditPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'reports/AI_Audit_Report.md');
+const auditReportPath = possibleAuditPaths.find(p => fs.existsSync(p)) || path.resolve(process.cwd(), 'AI_Audit_Report.md');
 
 if (fs.existsSync(auditReportPath)) {
     console.log(`\n[CHECK 2] Auditing AI Audit Report: ${auditReportPath}`);

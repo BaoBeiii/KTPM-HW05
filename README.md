@@ -66,14 +66,14 @@ KTPM-HW05/
 │   ├── spike_recovery_evidence.txt               # Bằng chứng thời gian hồi phục bài Spike Test
 │   ├── endurance_hardware_threshold.txt          # Bằng chứng độ bền & ngưỡng phần cứng máy trạm
 │   └── resource_monitor_log.csv                  # 576 mẫu đo liên tục CPU & RAM của node.exe (PID 13212)
-├── reports/
-│   ├── AI_Audit_Report.md                        # Nhật ký kiểm toán AI minh bạch 5 phiên làm việc
-│   ├── Human_Review_Report.md                    # Báo cáo phản biện 6 lỗi kịch bản của AI (Task 1)
-│   ├── bug_reports.md                            # Mô tả chi tiết 7 lỗi SUT phát hiện được kèm GitHub Issues
-│   ├── test_cases.md                             # Ma trận và đặc tả toàn bộ ca kiểm thử chức năng & hiệu năng
-│   ├── Task2_AI_Analysis_Critique.md             # Phản biện lỗi suy diễn AI & 4 giải pháp tối ưu (Task 2)
-│   ├── Self_Assessment_Rubric.md                 # Bảng tự chấm điểm chi tiết 100/100
-│   └── Video_Demo_Script.md                      # Kịch bản chi tiết quay video demo nộp bài
+├── report.md                                     # BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT) hợp nhất 10 mục
+├── AI_Audit_Report.md                            # Nhật ký kiểm toán AI minh bạch 6 phiên làm việc
+├── AI_Critique_Report.md                         # Báo cáo phê bình lỗi suy diễn AI & 4 giải pháp tối ưu (Task 2)
+├── bug_reports.md                                # Mô tả chi tiết 7 lỗi SUT phát hiện được kèm patch diff
+├── Human_Review_Report.md                        # Báo cáo phản biện 6 lỗi kịch bản của AI (Task 1)
+├── test_cases.md                                 # Ma trận và đặc tả toàn bộ ca kiểm thử chức năng & tải
+├── Self_Assessment_Rubric.md                     # Bảng tự chấm điểm chi tiết 100/100
+├── Video_Demo_Script.md                          # Kịch bản chi tiết quay video demo nộp bài 3 - 5 phút
 ├── results/
 │   ├── load/
 │   │   ├── summary.html                          # Dashboard HTML tương tác kết quả Load Test
@@ -202,7 +202,7 @@ node scripts/verify_report_integrity.js
 
 ## 5. TỔNG HỢP 7 LỖI HỆ THỐNG SUT ĐƯỢC CÀI BẪY BẮT TRỌN
 
-Chi tiết xem tại tài liệu chuyên khảo: [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md).
+Chi tiết xem tại tài liệu chuyên khảo: [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md).
 
 | Mã Lỗi | Tên Lỗi & Vị Trí Code | Hành Vi Sai Lệch Nghiêm Trọng | Bẫy Assertions & Số Lần Bắt |
 | :---: | :--- | :--- | :---: |
@@ -211,14 +211,14 @@ Chi tiết xem tại tài liệu chuyên khảo: [reports/bug_reports.md](file:/
 | **BUG-03** | **Ép kiểu giá thành chuỗi ở ID chẵn**<br>`server.js:162` | Ép kiểu `String(product.price)` nếu `id % 2 === 0`, phá vỡ hợp đồng API JSON. | Bắt **4.099 lần** (`typeof price === 'number'`). |
 | **BUG-04** | **Khóa tài khoản sai logic FR-02**<br>`server.js:54-62` | Tăng số lần thử sai `+2` thay vì `+1` và khóa tới 3 phút thay vì 30 giây. | Bẫy login mật khẩu sai và kiểm tra phản hồi 403. |
 | **BUG-05** | **Checkout không tính lại giỏ hàng**<br>`server.js:296` | Lấy trực tiếp `total_amount` từ client gửi lên mà không xác minh lại với CSDL, cho phép khách hàng sửa giá về 0đ. | Bẫy gian lận giá đơn hàng phát hiện lỗ hổng logic. |
-| **BUG-06** | **Chuyển trạng thái đơn hàng phi lý**<br>`server.js:342` | Cho phép cập nhật đơn hàng đã bị hủy (`canceled`) chuyển thẳng thành đã giao (`delivered`). | Bẫy cập nhật trạng thái đơn hàng phát hiện sai luồng. |
+| **BUG-06** | **Chuyển trạng thái đơn hàng phi lý**<br>`server.js:550` | Cho phép cập nhật đơn hàng đã bị hủy (`canceled`) chuyển thẳng thành đã giao (`delivered`). | Bẫy cập nhật trạng thái đơn hàng phát hiện sai luồng. |
 | **BUG-07** | **Lỗ hổng Race Condition khi dùng mã**<br>`server.js:425` | Không bọc Transaction hoặc mutex lock, cho phép 1 user dùng vượt quá `max_uses_per_user` khi gửi đồng thời. | Bắt trong bài Stress Test 200 VUs. |
 
 ---
 
 ## 6. PHẢN BIỆN LỖI SUY DIỄN AI & 4 GIẢI PHÁP TỐI ƯU KIẾN TRÚC (TASK 2)
 
-Chi tiết xem tại tài liệu chuyên khảo: [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md).
+Chi tiết xem tại tài liệu chuyên khảo: [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md).
 
 ### 6.1 Bắt 5 Lỗi Suy Diễn Ngụy Tạo Của AI Khi Đọc Log
 1. **Ngụy biện giá trị trung bình (The Mean Fallacy)**: AI khen nức nở Average Latency ~1.16ms mà bỏ qua phân vị trôi đuôi $p95$ ở bước ghi Checkout bị chậm gấp 6 lần bước đọc.
@@ -251,12 +251,12 @@ Chi tiết xem tại tài liệu chuyên khảo: [reports/Task2_AI_Analysis_Crit
 ## 8. CÁC BÁO CÁO BÀN GIAO CHÍNH THỨC
 
 1. 🏆 **[report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/report.md)**: **BÁO CÁO CHÍNH TOÀN DIỆN (MAIN REPORT)** hợp nhất 10 mục của toàn bộ đồ án theo Mục 14 đề bài.
-2. [reports/AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI minh bạch 6 phiên làm việc với 4-5 điểm con người bắt sửa cho mỗi phần.
-3. [reports/Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Human_Review_Report.md): Báo cáo phản biện Task 1 phân tích 6 nhóm lỗi AI theo 3 chiều kích kèm khối so sánh Diff Before/After.
-4. [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
-5. [reports/test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
-6. [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md): Phân tích phản biện lỗi suy diễn của AI và 4 đề xuất tối ưu hóa kiến trúc.
-7. [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md): Bảng tự đánh giá chi tiết đạt điểm số 100/100.
-8. [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
+2. [AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI minh bạch 6 phiên làm việc với 4-5 điểm con người bắt sửa cho mỗi phần.
+3. [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md): Báo cáo phản biện Task 1 phân tích 6 nhóm lỗi AI theo 3 chiều kích kèm khối so sánh Diff Before/After.
+4. [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issues.
+5. [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md): Đặc tả toàn bộ ca kiểm thử chức năng, biên và ma trận kiểm thử tải.
+6. [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md): Phân tích phản biện lỗi suy diễn của AI và 4 đề xuất tối ưu hóa kiến trúc.
+7. [Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Self_Assessment_Rubric.md): Bảng tự đánh giá chi tiết đạt điểm số 100/100.
+8. [Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Video_Demo_Script.md): Kịch bản quay video demo nộp bài chi tiết từng giây.
 9. [evidence/git_commit_log.txt](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/evidence/git_commit_log.txt): Trích lục toàn bộ lịch sử Git commit dạng text.
 

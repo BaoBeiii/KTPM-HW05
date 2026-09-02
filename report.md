@@ -75,7 +75,7 @@ Theo chiến lược AI-First, sinh viên đã dẫn dắt AI thiết kế 4 k�
 
 ## 3. PHẢN BIỆN CỦA CON NGƯỜI & KHẮC PHỤC LỖI KỊCH BẢN AI (HUMAN REVIEW TASK 1)
 
-Chi tiết đối chiếu xem tại [reports/Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Human_Review_Report.md).
+Chi tiết đối chiếu xem tại [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md).
 
 Khi sinh viên rà soát bản sinh kịch bản ban đầu của AI, đã phát hiện **6 nhóm sai sót nghiêm trọng**:
 
@@ -136,7 +136,7 @@ Khi sinh viên rà soát bản sinh kịch bản ban đầu của AI, đã phát
 
 ## 4. BÁO CÁO BẪY 7 LỖI HỆ THỐNG CỦA SUT (BUG HUNTING & SUT DEFECT ANALYSIS)
 
-Chi tiết xem tại [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md) và [reports/test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/test_cases.md).
+Chi tiết xem tại [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md) và [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md).
 
 Sinh viên đã rà soát toàn bộ 573 dòng mã nguồn `eshop-sut/backend/server.js`, phát hiện và cài bẫy thành công **7 lỗi hệ thống**:
 
@@ -189,7 +189,7 @@ Chi tiết tại [evidence/endurance_hardware_threshold.txt](file:///d:/Document
 
 ## 6. PHÂN TÍCH KẾT QUẢ, BẮT LỖI SUY DIỄN AI & 4 GIẢI PHÁP TỐI ƯU KIẾN TRÚC (TASK 2)
 
-Chi tiết xem tại [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md).
+Chi tiết xem tại [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md).
 
 ### 6.1 Câu Lệnh Gửi AI (User Prompt) & Phản Hồi Thô Của AI (Raw Response)
 * **Prompt**: Yêu cầu AI phân tích dữ liệu log và resource monitor của 4 kịch bản.
@@ -276,13 +276,13 @@ graph TD
 
 ### 10.1 Danh Mục Các Liên Kết Báo Cáo Chuyên Khảo Đi Kèm
 1. [README.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/README.md): Hướng dẫn cài đặt và tổng quan dự án.
-2. [reports/AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI 6 phiên làm việc.
-3. [reports/Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Human_Review_Report.md): Phân tích phản biện 6 nhóm lỗi AI Task 1.
-4. [reports/bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
-5. [reports/test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
-6. [reports/Task2_AI_Analysis_Critique.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Task2_AI_Analysis_Critique.md): Phân tích phản biện Task 2 & 4 giải pháp tối ưu.
-7. [reports/Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Self_Assessment_Rubric.md): Bảng tự đánh giá chi tiết 100/100.
-8. [reports/Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/reports/Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút.
+2. [AI_Audit_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Audit_Report.md): Nhật ký kiểm toán tương tác AI 6 phiên làm việc.
+3. [Human_Review_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Human_Review_Report.md): Phân tích phản biện 6 nhóm lỗi AI Task 1.
+4. [bug_reports.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/bug_reports.md): Chi tiết 7 lỗi SUT phát hiện được (BUG-01 đến BUG-07).
+5. [test_cases.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/test_cases.md): Đặc tả ma trận kiểm thử FR-01..FR-19.
+6. [AI_Critique_Report.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/AI_Critique_Report.md): Phân tích phản biện Task 2 & 4 giải pháp tối ưu.
+7. [Self_Assessment_Rubric.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Self_Assessment_Rubric.md): Bảng tự đánh giá chi tiết 100/100.
+8. [Video_Demo_Script.md](file:///d:/Documents/%C4%90%E1%BA%A1i%20h%E1%BB%8Dc/N%C4%83m%203-HCMUS/K%C3%AC%203/Ki%E1%BB%83m%20th%E1%BB%AD%20ph%E1%BA%A7n%20m%E1%BB%81m/HW05/KTPM-HW05/Video_Demo_Script.md): Kịch bản quay video demo 3 đến 5 phút.
 
 ### 10.2 Trích Lục Lịch Sử Git Commits (Trích từ `evidence/git_commit_log.txt`)
 ```text
