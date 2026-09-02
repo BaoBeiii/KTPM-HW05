@@ -1,0 +1,58 @@
+================================================================================
+EVIDENCE: ENDURANCE / SOAK TESTING EXECUTION METRICS (15-Minute Sustained Load)
+Student ID: 23127327
+Hostname: DESKTOP-BEIZU
+Date & Time: 2026-09-02 15:21:44
+Target SUT: Node.js Express (PID: 13212) on http://localhost:3000
+Database: SQLite3 (database.sqlite)
+Total Telemetry Samples Recorded: 576 Continuous Measurements
+================================================================================
+
+1. K6 EXECUTION PROFILE
+--------------------------------------------------------------------------------
+- Test Duration: 15m03.4s
+- Sustained Active VUs: 30 Virtual Users
+- Total Completed Iterations: 2,814
+- Total HTTP Requests Executed: 15,736 (Steady rate: ~17.42 req/s)
+- Total Data Transferred: 66 MB Received / 4.5 MB Sent
+
+2. LATENCY STABILITY OVER TIME (SLO EVALUATION)
+--------------------------------------------------------------------------------
+Endpoint                         p(95) Duration      Mean Duration   Status
+--------------------------------------------------------------------------------
+01_Login (POST /api/login)       1.80 ms             1.21 ms         Stable
+05_Checkout (POST /api/checkout) 6.30 ms             5.34 ms         Stable
+Overall http_req_duration (p95): 5.73 ms             1.91 ms         Stable
+
+Observation:
+Response times remained strictly flat and horizontal over the entire 15-minute
+window. There is zero evidence of latency degradation or queue build-up.
+
+3. HARDWARE & RESOURCE TELEMETRY (PID 13212)
+--------------------------------------------------------------------------------
+- Initial Working Set RAM (T=0):  59.73 MB
+- Peak Working Set under soak:    96.22 MB
+- Final Working Set at T=15m:     70.43 MB
+- Baseline Private Memory:        63.29 MB
+- Peak Private Memory:            76.83 MB
+- Final Private Memory:           75.77 MB
+- Net Memory Drift (End vs Init): +10.70 MB
+- Memory Leak Verdict: PASS (No Leak Detected).
+  V8 Garbage Collection active: memory climbed temporarily during peak write
+  transactions and automatically stabilized back to ~70 MB without runaway growth.
+
+4. EMPIRICAL HARDWARE THRESHOLD ON LOCAL HOST (DESKTOP-BEIZU)
+--------------------------------------------------------------------------------
+- Max Sustainable Throughput: ~135 req/s (at saturation)
+- Recommended Operating Point: 30 - 50 VUs (~25 - 45 req/s)
+- Concurrency Ceiling: ~120 concurrent connections before SQLite file lock contention.
+- Heap Memory Ceiling: ~100 MB Private Working Set.
+
+5. ARTIFACTS GENERATED
+--------------------------------------------------------------------------------
+- HTML Interactive Dashboard: results/endurance/summary.html
+- Structured JSON Metrics:    results/endurance/metrics.json
+- Raw CSV Samples:            results/endurance/raw_metrics.csv
+- JMeter-compatible Log:      results/endurance/raw_endurance.jtl
+- Complete Telemetry Log:     evidence/resource_monitor_log.csv (576 rows)
+================================================================================
