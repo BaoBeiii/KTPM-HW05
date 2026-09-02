@@ -78,3 +78,30 @@
   > - `scripts/reset_lockout.js`: Chạy SQL `UPDATE users SET login_attempts = 0, locked_until = NULL;`.
   > - `scripts/seed_test_users.js`: Đọc CSV nạp tự động 50 users vào `database.sqlite`.
   > - `scripts/reset_database.js`: Khôi phục toàn diện CSDL về trạng thái sạch ban đầu.
+
+---
+
+## 2. Nhật ký Tương tác Giai đoạn 2: Phê Bình & Hoàn Thiện Kịch Bản (Human Review & Fix)
+
+### Phiên làm việc 2.1: Phê Bình Kịch Bản AI & Đối Chiếu Mã Nguồn SUT Thực Tế
+* **Thời gian (Timestamp):** `2026-09-02T14:30:00+07:00`
+* **Công cụ AI:** Google Antigravity / Gemini 3.7 Flash (High)
+* **Mục đích:** Rà soát các lỗi của bản sinh kịch bản ban đầu, đối chiếu từng dòng mã nguồn `eshop-sut/backend/server.js` và xác định 7 lỗi hệ thống của SUT (BUG-01 đến BUG-07).
+* **Prompt của Người dùng:**
+  ```text
+  Tôi thấy có sai sót hãy quét eshop để cập nhập các script test ra nhiều bug nhất có thể.
+  Sau đó lập file test_cases.md tổng hợp các ca kiểm thử và báo cáo Human Review Task 1 
+  chỉ rõ những gì AI đã làm sai hoặc bỏ sót và giải thích tại sao nó bỏ sót (chất lượng prompt, 
+  giới hạn mô hình hay đặc thù endpoint).
+  ```
+* **Phản hồi của AI & Đóng góp của Con người (Human Review Insights):**
+  > Con người đã chỉ đạo quét mã nguồn thực tế và phát hiện:
+  > 1. AI ban đầu đoán sai 3 endpoint quan trọng do thiên kiến mẫu REST (`/api/orders` thay vì `/api/checkout`, `/api/coupons/apply` thay vì `/api/apply-coupon`, `/api/orders` thay vì `/api/orders/my-orders`).
+  > 2. AI áp dụng think-time tĩnh phẳng `sleep(1)` gây hiện tượng xung kích đồng bộ phi thực tế. Con người sửa thành thời gian dừng ngẫu nhiên $1\text{s} - 3\text{s}$.
+  > 3. AI sử dụng assertion nông (chỉ check status 200), làm bỏ lọt hoàn toàn BUG-01 (công thức giảm giá âm) và BUG-03 (sai kiểu dữ liệu price). Con người đã bổ sung deep assertions để bẫy trọn các lỗi này.
+  > 4. AI thiếu hàm xuất báo cáo đồ họa trực quan. Con người đã tải và đóng gói trực tiếp các thư viện offline (`k6-reporter.js`, `k6-summary.js`, `papaparse.js`) và tích hợp hàm `handleSummary(data)` để tự động xuất file `summary.html` Dashboard tương tác cao cấp.
+  > 5. Sinh viên đã lập các tài liệu bàn giao độc lập:
+  >    - `reports/Human_Review_Report.md`: Phân tích 6 nhóm lỗi AI và nguyên nhân gốc rễ.
+  >    - `reports/bug_reports.md`: Mô tả chi tiết 7 lỗi SUT phát hiện được kèm mẫu GitHub Issue.
+  >    - `reports/test_cases.md`: Tổng hợp ma trận kiểm thử và toàn bộ ca kiểm thử chi tiết.
+
